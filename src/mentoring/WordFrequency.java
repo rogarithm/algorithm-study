@@ -9,7 +9,7 @@ import java.util.Map;
 // (apple 이라는 key 의 value 가 2 이고,  book 이라는 key 의 value 가 1 인 Map)
 public class WordFrequency {
     public static void main(String[] args) {
-        List<String> test = new ArrayList<String>();
+        List<String> test = new ArrayList<>();
         test.add("apple");
         test.add("book");
         test.add("Apple");
@@ -22,7 +22,7 @@ public class WordFrequency {
     }
 
     public static Map<String, Integer> solution(List<String> words) {
-        Map<String, Integer> result = new HashMap<String, Integer>();
+        Map<String, Integer> result = new HashMap<>();
         // 대소문자 구분 처리? 먼저 대문자를 모두 소문자로 바꾸는 것은 어떨까?
         for (int i=0; i<words.size(); i++) {
             words.set(i, words.get(i).toLowerCase());
