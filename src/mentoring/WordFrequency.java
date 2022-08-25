@@ -7,12 +7,12 @@ import java.util.Map;
 // input : [“apple”, “book”, “Apple “]
 // output : mapOf(“apple”,2 , “book”, 1)
 // (apple 이라는 key 의 value 가 2 이고,  book 이라는 key 의 value 가 1 인 Map)
-public class wordFrequency {
+public class WordFrequency {
     public static void main(String[] args) {
-        List<String> test = new ArrayList<String>();
+        List<String> test = new ArrayList<>();
         test.add("apple");
         test.add("book");
-        test.add("Apple");
+        test.add("Apple ");
         test.add("aPple");
         test.add("cargo");
         test.add("cargO");
@@ -22,10 +22,11 @@ public class wordFrequency {
     }
 
     public static Map<String, Integer> solution(List<String> words) {
-        Map<String, Integer> result = new HashMap<String, Integer>();
+        Map<String, Integer> result = new HashMap<>();
         // 대소문자 구분 처리? 먼저 대문자를 모두 소문자로 바꾸는 것은 어떨까?
         for (int i=0; i<words.size(); i++) {
             words.set(i, words.get(i).toLowerCase());
+            words.set(i, words.get(i).trim());
         }
         // System.out.println("after toLowerCase, " + words);
         // result에 키와 빈도수를 추가한다.
