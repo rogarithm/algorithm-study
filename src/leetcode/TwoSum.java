@@ -1,5 +1,5 @@
 // 20220821
-class Solution {
+class TwoSum {
 	public int[] twoSum(int[] nums, int target) {
 		int[] result = new int[2]; // 값을 주고 배열을 초기화하려면 어떻게 해야 하지?
 
