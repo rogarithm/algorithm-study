@@ -7,7 +7,7 @@ import java.util.Map;
 // input : [“apple”, “book”, “Apple “]
 // output : mapOf(“apple”,2 , “book”, 1)
 // (apple 이라는 key 의 value 가 2 이고,  book 이라는 key 의 value 가 1 인 Map)
-public class wordFrequency {
+public class WordFrequency {
     public static void main(String[] args) {
         List<String> test = new ArrayList<String>();
         test.add("apple");
