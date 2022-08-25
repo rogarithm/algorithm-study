@@ -12,7 +12,7 @@ public class WordFrequency {
         List<String> test = new ArrayList<>();
         test.add("apple");
         test.add("book");
-        test.add("Apple");
+        test.add("Apple ");
         test.add("aPple");
         test.add("cargo");
         test.add("cargO");
@@ -26,6 +26,7 @@ public class WordFrequency {
         // 대소문자 구분 처리? 먼저 대문자를 모두 소문자로 바꾸는 것은 어떨까?
         for (int i=0; i<words.size(); i++) {
             words.set(i, words.get(i).toLowerCase());
+            words.set(i, words.get(i).trim());
         }
         // System.out.println("after toLowerCase, " + words);
         // result에 키와 빈도수를 추가한다.
