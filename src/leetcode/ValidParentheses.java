@@ -36,6 +36,10 @@ public class ValidParentheses {
             }
         }
 
-        return true;
+        if (parenthesesToCheck.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
