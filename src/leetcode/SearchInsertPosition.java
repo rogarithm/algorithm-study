@@ -19,15 +19,23 @@ public class SearchInsertPosition {
 
     public static void main(String[] args) {
         SearchInsertPosition sip = new SearchInsertPosition();
-        int[] nums1 = {1, 3, 5, 6};
-        System.out.println(sip.searchInsert(nums1, 3));
-        System.out.println(sip.searchInsert(nums1, 1));
-        System.out.println(sip.searchInsert(nums1, 5));
-        System.out.println(sip.searchInsert(nums1, 6));
-        System.out.println(sip.searchInsert(nums1, 2));
-        System.out.println(sip.searchInsert(nums1, 7));
-        // 예상과 다른 결과 나오는 케이스
-        System.out.println(sip.searchInsert(nums1, 0));
+        //int[] nums1 = {1, 3, 5, 6};
+        //System.out.println(sip.searchInsert(nums1, 3));
+        //System.out.println(sip.searchInsert(nums1, 1));
+        //System.out.println(sip.searchInsert(nums1, 5));
+        //System.out.println(sip.searchInsert(nums1, 6));
+        //System.out.println(sip.searchInsert(nums1, 2));
+        //System.out.println(sip.searchInsert(nums1, 7));
+        //// 예상과 다른 결과 나오는 케이스
+        //System.out.println(sip.searchInsert(nums1, 0));
+
+        //int[] check = {1, 3};
+        //System.out.println(sip.searchInsert(check, 0));
+        //System.out.println(sip.searchInsert(check, 2));
+
+        //System.out.println(sip.searchInsert(check, 1));
+        //System.out.println(sip.searchInsert(check, 3));
+        //System.out.println(sip.searchInsert(check, 4));
     }
 
     // O(log n) 여야 하므로 트리를 사용하는 게 좋을 것 같다. 혹은 binary search
@@ -36,14 +44,21 @@ public class SearchInsertPosition {
     public int searchInsert(int[] nums, int target) {
         int arrayLength = nums.length;
         if (arrayLength == 1) {
-            if (nums[0] == target) {
+            if (nums[0] >= target) {
                 return 0;
-            } else if (nums[0] > target) {
-                return -1;
             } else if (nums[0] < target) {
                 return 1;
             }
+        } else if (arrayLength == 2) {
+            if (nums[0] >= target) {
+                return 0;
+            } else if (nums[0] < target && target <= nums[1]) {
+                return 1;
+            } else if (nums[1] < target) {
+                return 2;
+            }
         }
+
         // 주어진 배열을 둘로 나눈다. 일단 배열 갯수가 짝수일 경우
         else if (arrayLength % 2 == 0) {
             // length / 2 - 1 이하와 초과 범위로 나뉜다
