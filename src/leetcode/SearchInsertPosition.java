@@ -36,6 +36,9 @@ public class SearchInsertPosition {
         //System.out.println(sip.searchInsert(check, 1));
         //System.out.println(sip.searchInsert(check, 3));
         //System.out.println(sip.searchInsert(check, 4));
+
+        int[] check2 = {1, 3, 5};
+        System.out.println(sip.searchInsert(check2, 6));
     }
 
     // O(log n) 여야 하므로 트리를 사용하는 게 좋을 것 같다. 혹은 binary search
@@ -95,9 +98,10 @@ public class SearchInsertPosition {
                 // target은 뒷쪽 배열에 있다.
                 // length/2 - 1 <= index < length 범위를 찾아봐야 한다.
                 int[] later = new int[(arrayLength - 1) / 2];
-                System.arraycopy(nums, (arrayLength - 1) / 2, later, 0, (arrayLength - 1) / 2);
+                System.arraycopy(nums, arrayLength - ((arrayLength - 1) / 2), later, 0,
+                        (arrayLength - 1) / 2);
                 return searchInsert(later, target)
-                        + (arrayLength - 1) / 2; // 인덱스 값을 맞추려면 잘린 앞쪽 길이를 붙여야 한다.
+                        + arrayLength - ((arrayLength - 1) / 2); // 인덱스 값을 맞추려면 잘린 앞쪽 길이를 붙여야 한다.
             }
         }
         return arrayLength;
