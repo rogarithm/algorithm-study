@@ -84,7 +84,7 @@ public class SearchInsertPosition {
             }
         }
         //// 배열 갯수가 홀수일 경우
-        else if (arrayLength % 2 == 1) {
+        else {
             // 앞쪽 맨 뒤 값과 target을 비교하자
             if (nums[(arrayLength - 1) / 2] == target) {
                 return (arrayLength - 1) / 2;
@@ -104,6 +104,6 @@ public class SearchInsertPosition {
                         + arrayLength - ((arrayLength - 1) / 2); // 인덱스 값을 맞추려면 잘린 앞쪽 길이를 붙여야 한다.
             }
         }
-        return arrayLength;
+        return 0;
     }
 }
