@@ -19,26 +19,26 @@ public class SearchInsertPosition {
 
     public static void main(String[] args) {
         SearchInsertPosition sip = new SearchInsertPosition();
-        //int[] nums1 = {1, 3, 5, 6};
-        //System.out.println(sip.searchInsert(nums1, 3));
-        //System.out.println(sip.searchInsert(nums1, 1));
-        //System.out.println(sip.searchInsert(nums1, 5));
-        //System.out.println(sip.searchInsert(nums1, 6));
-        //System.out.println(sip.searchInsert(nums1, 2));
-        //System.out.println(sip.searchInsert(nums1, 7));
-        //// 예상과 다른 결과 나오는 케이스
-        //System.out.println(sip.searchInsert(nums1, 0));
+        int[] nums1 = {1, 3, 5, 6};
+        System.out.println(sip.searchInsert(nums1, 3) == 1);
+        System.out.println(sip.searchInsert(nums1, 1) == 0);
+        System.out.println(sip.searchInsert(nums1, 5) == 2);
+        System.out.println(sip.searchInsert(nums1, 6) == 3);
+        System.out.println(sip.searchInsert(nums1, 2) == 1);
+        System.out.println(sip.searchInsert(nums1, 7) == 4);
+        // 예상과 다른 결과 나오는 케이스
+        System.out.println(sip.searchInsert(nums1, 0) == 0);
 
-        //int[] check = {1, 3};
-        //System.out.println(sip.searchInsert(check, 0));
-        //System.out.println(sip.searchInsert(check, 2));
+        int[] check = {1, 3};
+        System.out.println(sip.searchInsert(check, 0) == 0);
+        System.out.println(sip.searchInsert(check, 2) == 1);
 
-        //System.out.println(sip.searchInsert(check, 1));
-        //System.out.println(sip.searchInsert(check, 3));
-        //System.out.println(sip.searchInsert(check, 4));
+        System.out.println(sip.searchInsert(check, 1) == 0);
+        System.out.println(sip.searchInsert(check, 3) == 1);
+        System.out.println(sip.searchInsert(check, 4) == 2);
 
         int[] check2 = {1, 3, 5};
-        System.out.println(sip.searchInsert(check2, 6));
+        System.out.println(sip.searchInsert(check2, 6) == 3);
     }
 
     // O(log n) 여야 하므로 트리를 사용하는 게 좋을 것 같다. 혹은 binary search
