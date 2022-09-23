@@ -38,11 +38,6 @@ public class ValidParentheses {
             }
         }
 
-        if (stack.isEmpty()) {
-            return true;
-        } else {
-            // 여는 괄호 하나만 있을 경우는 반복문 빠져나와도 스택이 비어있지 않지만 짝이 없으니 false를 반환해야 한다
-            return false;
-        }
+				return stack.isEmpty();
     }
 }
