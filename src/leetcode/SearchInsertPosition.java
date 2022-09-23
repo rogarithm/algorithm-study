@@ -55,7 +55,7 @@ public class SearchInsertPosition {
         } else if (arrayLength == 2) {
             if (nums[0] >= target) {
                 return 0;
-            } else if (nums[0] < target && target <= nums[1]) {
+            } else if (target <= nums[1]) {
                 return 1;
             } else {
                 return 2;
