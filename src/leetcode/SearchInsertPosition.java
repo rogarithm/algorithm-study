@@ -49,7 +49,7 @@ public class SearchInsertPosition {
         if (arrayLength == 1) {
             if (nums[0] >= target) {
                 return 0;
-            } else if (nums[0] < target) {
+            } else {
                 return 1;
             }
         } else if (arrayLength == 2) {
@@ -57,7 +57,7 @@ public class SearchInsertPosition {
                 return 0;
             } else if (nums[0] < target && target <= nums[1]) {
                 return 1;
-            } else if (nums[1] < target) {
+            } else {
                 return 2;
             }
         }
@@ -104,6 +104,5 @@ public class SearchInsertPosition {
                         + arrayLength - ((arrayLength - 1) / 2); // 인덱스 값을 맞추려면 잘린 앞쪽 길이를 붙여야 한다.
             }
         }
-        return 0;
     }
 }
