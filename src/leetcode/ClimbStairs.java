@@ -22,6 +22,8 @@ public class ClimbStairs {
         ClimbStairs cs = new ClimbStairs();
         System.out.println(cs.climbStairs(2) == 2);
         System.out.println(cs.climbStairs(3) == 3);
+        System.out.println(cs.climbStairs(4));
+        System.out.println(cs.climbStairs(5));
     }
 
     public int climbStairs(int n) {
