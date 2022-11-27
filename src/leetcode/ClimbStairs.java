@@ -38,8 +38,6 @@ public class ClimbStairs {
         // 가능한 모든 경로를 확인해본다.
         // 지금 체크하는 경로가 유효하면 결과에 1을 더한다. 유효한지 어떻게 확인하나? n이 0이 되면 유효한 경로다.
 
-        int result = 0;
-
         if (n == 0 || n == 1) {
             return 1;
         } else if (n == 2) {
@@ -50,7 +48,7 @@ public class ClimbStairs {
             return memo.get(n);
         }
 
-        result = climbStairs(n - 1) + climbStairs(n - 2);
+        int result = climbStairs(n - 1) + climbStairs(n - 2);
         memo.put(n, result);
 
         return result;
