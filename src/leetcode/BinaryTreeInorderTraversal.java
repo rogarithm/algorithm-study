@@ -1,9 +1,45 @@
+import java.util.ArrayList;
 import java.util.List;
 
 class BinaryTreeInorderTraversal {
 
-    public List<Integer> inorderTraversal(TreeNode root) {
+    public static void main(String[] args) {
+        BinaryTreeInorderTraversal btit = new BinaryTreeInorderTraversal();
+        System.out.println(btit.inorderTraversal(null));
+        System.out.println(btit.inorderTraversal(new TreeNode(1)));
+        System.out.println(btit.inorderTraversal(
+                new TreeNode(1,
+                        new TreeNode(),
+                        new TreeNode())));
+        System.out.println(btit.inorderTraversal(
+                new TreeNode(1,
+                        new TreeNode(),
+                        new TreeNode(2, null, new TreeNode(3))
+                )));
+    }
 
+    public List<Integer> inorderTraversal(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+
+        List<Integer> result = new ArrayList<>();
+        if (root.left != null) {
+            List<Integer> lefts = inorderTraversal(root.left);
+            for (Integer left : lefts) {
+                System.out.println("left: " + left);
+                result.add(left);
+            }
+        }
+        result.add(root.val);
+        if (root.right != null) {
+            List<Integer> rights = inorderTraversal(root.right);
+            for (Integer right : rights) {
+                System.out.println("right: " + right);
+                result.add(right);
+            }
+        }
+        return result;
     }
 
     public static class TreeNode {
