@@ -1,16 +1,17 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class BinaryTreeInorderTraversal {
 
     public static void main(String[] args) {
         BinaryTreeInorderTraversal btit = new BinaryTreeInorderTraversal();
-        System.out.println(btit.inorderTraversal(null));
-        System.out.println(btit.inorderTraversal(new TreeNode(1)));
+        System.out.println(btit.inorderTraversal(null).equals(new ArrayList<Integer>()));
+        System.out.println(btit.inorderTraversal(new TreeNode(1)).equals(Arrays.asList(1)));
         System.out.println(btit.inorderTraversal(
                 new TreeNode(1,
                         new TreeNode(),
-                        new TreeNode())));
+                        new TreeNode())).equals(Arrays.asList(1)));
         System.out.println(btit.inorderTraversal(
                 new TreeNode(1,
                         new TreeNode(),
