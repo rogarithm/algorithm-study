@@ -8,20 +8,12 @@ class BinaryTreeInorderTraversal {
         BinaryTreeInorderTraversal btit = new BinaryTreeInorderTraversal();
         System.out.println(btit.inorderTraversal(null).equals(new ArrayList<Integer>()));
         System.out.println(btit.inorderTraversal(new TreeNode(1)).equals(Arrays.asList(1)));
+        System.out.println(
+                btit.inorderTraversal(new TreeNode(1, null, null)).equals(Arrays.asList(1)));
         System.out.println(btit.inorderTraversal(
-                new TreeNode(1,
-                        new TreeNode(),
-                        new TreeNode())).equals(Arrays.asList(1)));
+                new TreeNode(1, null, new TreeNode(2, null, new TreeNode(3)))));
         System.out.println(btit.inorderTraversal(
-                new TreeNode(1,
-                        new TreeNode(),
-                        new TreeNode(2, null, new TreeNode(3))
-                )));
-        System.out.println(btit.inorderTraversal(
-                new TreeNode(4,
-                        new TreeNode(2, new TreeNode(1), new TreeNode(3)),
-                        new TreeNode())
-        ));
+                new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)), null)));
     }
 
     public List<Integer> inorderTraversal(TreeNode root) {
