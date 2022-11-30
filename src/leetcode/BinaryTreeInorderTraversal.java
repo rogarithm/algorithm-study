@@ -24,9 +24,7 @@ class BinaryTreeInorderTraversal {
         List<Integer> result = new ArrayList<>();
         if (root.left != null) {
             List<Integer> lefts = inorderTraversal(root.left);
-            //System.out.println("lefts: " + lefts);
             for (Integer left : lefts) {
-                //System.out.println("left: " + left);
                 if (left != null) {
                     result.add(left);
                 }
@@ -36,7 +34,6 @@ class BinaryTreeInorderTraversal {
         if (root.right != null) {
             List<Integer> rights = inorderTraversal(root.right);
             for (Integer right : rights) {
-                //System.out.println("right: " + right);
                 result.add(right);
             }
         }
