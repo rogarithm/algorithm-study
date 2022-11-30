@@ -17,6 +17,11 @@ class BinaryTreeInorderTraversal {
                         new TreeNode(),
                         new TreeNode(2, null, new TreeNode(3))
                 )));
+        System.out.println(btit.inorderTraversal(
+                new TreeNode(4,
+                        new TreeNode(2, new TreeNode(1), new TreeNode(3)),
+                        new TreeNode())
+        ));
     }
 
     public List<Integer> inorderTraversal(TreeNode root) {
