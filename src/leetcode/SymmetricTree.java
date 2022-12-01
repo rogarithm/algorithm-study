@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class SymmetricTree {
 
     public static void main(String[] args) {
@@ -14,9 +17,49 @@ public class SymmetricTree {
 
         // 이렇게 구현하려면 inorder traversal 연산하는 메서드, 연산 결과를 뒤집을 메서드 두 개가 필요하다.
 
+        if (root.left == null || root.right == null) {
+            return false;
+        }
+
+        List<Integer> lefts = inorderTraversal(root.left);
+        System.out.println("LEFTS: " + lefts);
+        List<Integer> rights = inorderTraversal(root.right);
+        System.out.println("RIGHTS: " + rights);
+        ArrayList<Integer> reversedRights = new ArrayList<>();
+        for (int length = rights.size() - 1; length >= 0; length--) {
+            reversedRights.add(rights.get(length));
+        }
+        System.out.println("REVERSED RIGHTS: " + reversedRights);
+
+        if (lefts.equals(reversedRights)) {
             return true;
         }
+
         return false;
+    }
+
+    private List<Integer> inorderTraversal(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+
+        List<Integer> result = new ArrayList<>();
+        if (root.left != null) {
+            List<Integer> lefts = inorderTraversal(root.left);
+            for (Integer left : lefts) {
+                if (left != null) {
+                    result.add(left);
+                }
+            }
+        }
+        result.add(root.val);
+        if (root.right != null) {
+            List<Integer> rights = inorderTraversal(root.right);
+            for (Integer right : rights) {
+                result.add(right);
+            }
+        }
+        return result;
     }
 
     private static class TreeNode {
