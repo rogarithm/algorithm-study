@@ -1,10 +1,14 @@
 public class SymmetricTree {
 
     public static void main(String[] args) {
-
+        SymmetricTree st = new SymmetricTree();
+        System.out.println(st.isSymmetric(new TreeNode(1, new TreeNode(2), new TreeNode(2))));
     }
 
     public boolean isSymmetric(TreeNode root) {
+        if (root.left.val == root.right.val) {
+            return true;
+        }
         return false;
     }
 
