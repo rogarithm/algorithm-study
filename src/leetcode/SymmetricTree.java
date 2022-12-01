@@ -3,6 +3,9 @@ public class SymmetricTree {
     public static void main(String[] args) {
         SymmetricTree st = new SymmetricTree();
         System.out.println(st.isSymmetric(new TreeNode(1, new TreeNode(2), new TreeNode(2))));
+        System.out.println(st.isSymmetric(
+                new TreeNode(1, new TreeNode(2, new TreeNode(3), new TreeNode(4)),
+                        new TreeNode(2, new TreeNode(3), new TreeNode(4)))) == false);
     }
 
     public boolean isSymmetric(TreeNode root) {
