@@ -8,7 +8,11 @@ public class SymmetricTree {
         System.out.println(st.isSymmetric(new TreeNode(1, new TreeNode(2), new TreeNode(2))));
         System.out.println(st.isSymmetric(
                 new TreeNode(1, new TreeNode(2, new TreeNode(3), new TreeNode(4)),
-                        new TreeNode(2, new TreeNode(3), new TreeNode(4)))) == false);
+                        new TreeNode(2, new TreeNode(3), new TreeNode(4)))));
+        System.out.println(st.isSymmetric(
+                new TreeNode(1, new TreeNode(2, new TreeNode(3), new TreeNode(4)),
+                        new TreeNode(2, new TreeNode(4), new TreeNode(3)))
+        ));
     }
 
     public boolean isSymmetric(TreeNode root) {
