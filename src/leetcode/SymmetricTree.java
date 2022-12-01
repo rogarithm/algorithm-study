@@ -9,7 +9,11 @@ public class SymmetricTree {
     }
 
     public boolean isSymmetric(TreeNode root) {
-        if (root.left.val == root.right.val) {
+        // left treeNode의 inorder traversal 결과를 뒤집은 게 right treeNode의 inorder traversal 결과와 같다면
+        // 둘은 symmetric하다고 할 수 있을 것 같다.
+
+        // 이렇게 구현하려면 inorder traversal 연산하는 메서드, 연산 결과를 뒤집을 메서드 두 개가 필요하다.
+
             return true;
         }
         return false;
