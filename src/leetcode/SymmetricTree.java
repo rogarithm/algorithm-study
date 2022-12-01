@@ -13,6 +13,8 @@ public class SymmetricTree {
                 new TreeNode(1, new TreeNode(2, new TreeNode(3), new TreeNode(4)),
                         new TreeNode(2, new TreeNode(4), new TreeNode(3)))
         ));
+
+        // 테스트 실패 케이스! : [1,2,2,2,null,2]
     }
 
     public boolean isSymmetric(TreeNode root) {
