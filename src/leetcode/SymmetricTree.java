@@ -62,8 +62,13 @@ public class SymmetricTree {
                     result.add(left);
                 }
             }
+        } else {
+            System.out.println("LEFT IS NULL; ADD DUMMY VALUE");
+            result.add(Integer.MIN_VALUE);
         }
+
         result.add(root.val);
+
         if (root.right != null) {
             List<Integer> rights = inorderTraversal(root.right);
             for (Integer right : rights) {
@@ -71,7 +76,11 @@ public class SymmetricTree {
                     result.add(right);
                 }
             }
+        } else {
+            System.out.println("RIGHT IS NULL; ADD DUMMY VALUE");
+            result.add(Integer.MIN_VALUE);
         }
+
         return result;
     }
 
