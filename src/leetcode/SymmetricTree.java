@@ -67,7 +67,9 @@ public class SymmetricTree {
         if (root.right != null) {
             List<Integer> rights = inorderTraversal(root.right);
             for (Integer right : rights) {
-                result.add(right);
+                if (right != null) {
+                    result.add(right);
+                }
             }
         }
         return result;
