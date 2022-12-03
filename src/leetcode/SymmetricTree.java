@@ -32,10 +32,12 @@ public class SymmetricTree {
             return false;
         }
 
+        System.out.println("CALCULATING LEFTS. LEFT VALUE IS: " + root.left.val);
         List<Integer> lefts = inorderTraversal(root.left);
-        System.out.println("LEFTS: " + lefts);
+        System.out.println("CALCULATING LEFTS. RESULT: " + lefts + " | SIZE: " + lefts.size());
+        System.out.println("CALCULATING RIGHTS. RIGHT VALUE IS: " + root.right.val);
         List<Integer> rights = inorderTraversal(root.right);
-        System.out.println("RIGHTS: " + rights);
+        System.out.println("CALCULATING RIGHTS. RESULT: " + rights + " | SIZE: " + rights.size());
         ArrayList<Integer> reversedRights = new ArrayList<>();
         for (int length = rights.size() - 1; length >= 0; length--) {
             reversedRights.add(rights.get(length));
@@ -51,6 +53,7 @@ public class SymmetricTree {
 
     private List<Integer> inorderTraversal(TreeNode root) {
         if (root == null) {
+            System.out.println("ROOT IS NULL");
             return new ArrayList<>();
         }
 
