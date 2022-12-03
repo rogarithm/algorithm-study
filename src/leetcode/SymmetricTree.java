@@ -15,6 +15,11 @@ public class SymmetricTree {
         ));
 
         // 테스트 실패 케이스! : [1,2,2,2,null,2]
+        // null을 무시하고 모으기 때문에
+        System.out.println(st.isSymmetric(
+                new TreeNode(1, new TreeNode(2, new TreeNode(2), null),
+                        new TreeNode(2, new TreeNode(2), null))
+        ));
     }
 
     public boolean isSymmetric(TreeNode root) {
