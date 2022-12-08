@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class SymmetricTree {
 
@@ -23,68 +21,29 @@ public class SymmetricTree {
     }
 
     public boolean isSymmetric(TreeNode root) {
-        // left treeNode의 inorder traversal 결과를 뒤집은 게 right treeNode의 inorder traversal 결과와 같다면
-        // 둘은 symmetric하다고 할 수 있을 것 같다.
-
-        // 이렇게 구현하려면 inorder traversal 연산하는 메서드, 연산 결과를 뒤집을 메서드 두 개가 필요하다.
-
-        if (root.left == null || root.right == null) {
+        if (root == null) {
             return false;
         }
 
-        System.out.println("CALCULATING LEFTS. LEFT VALUE IS: " + root.left.val);
-        List<Integer> lefts = inorderTraversal(root.left);
-        System.out.println("CALCULATING LEFTS. RESULT: " + lefts + " | SIZE: " + lefts.size());
-        System.out.println("CALCULATING RIGHTS. RIGHT VALUE IS: " + root.right.val);
-        List<Integer> rights = inorderTraversal(root.right);
-        System.out.println("CALCULATING RIGHTS. RESULT: " + rights + " | SIZE: " + rights.size());
-        ArrayList<Integer> reversedRights = new ArrayList<>();
-        for (int length = rights.size() - 1; length >= 0; length--) {
-            reversedRights.add(rights.get(length));
-        }
-        System.out.println("REVERSED RIGHTS: " + reversedRights);
+        return checkSymmetry(root.left, root.right);
+    }
 
-        if (lefts.equals(reversedRights)) {
+    private boolean checkSymmetry(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
             return true;
         }
 
+        if (left == null || right == null) {
+            return false;
+        }
+
+        if (left.val == right.val) {
+            // 자식이 null이더라도 대칭이면 괜찮다
+            // 자식이 대칭인지 확인
+            return checkSymmetry(left.left, right.right) && checkSymmetry(left.right, right.left);
+        }
+
         return false;
-    }
-
-    private List<Integer> inorderTraversal(TreeNode root) {
-        if (root == null) {
-            System.out.println("ROOT IS NULL");
-            return new ArrayList<>();
-        }
-
-        List<Integer> result = new ArrayList<>();
-        if (root.left != null) {
-            List<Integer> lefts = inorderTraversal(root.left);
-            for (Integer left : lefts) {
-                if (left != null) {
-                    result.add(left);
-                }
-            }
-        } else {
-            System.out.println("LEFT IS NULL; ADD DUMMY VALUE");
-            result.add(Integer.MIN_VALUE);
-        }
-
-        result.add(root.val);
-
-        if (root.right != null) {
-            List<Integer> rights = inorderTraversal(root.right);
-            for (Integer right : rights) {
-                if (right != null) {
-                    result.add(right);
-                }
-            }
-        } else {
-            System.out.println("RIGHT IS NULL; ADD DUMMY VALUE");
-            result.add(Integer.MIN_VALUE);
-        }
-
-        return result;
     }
 
     private static class TreeNode {
