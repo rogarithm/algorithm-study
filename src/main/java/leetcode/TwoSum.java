@@ -1,3 +1,5 @@
+package leetcode;
+
 // 20220821
 class TwoSum {
 	public int[] twoSum(int[] nums, int target) {
