@@ -35,9 +35,9 @@ class StockSellTiming {
         int max = Integer.MIN_VALUE;
         List<Integer> maxProfits = new ArrayList<>();
         for (int i = 0; i < len; i++) {
-            int maxProfit = getMaxProfit(i, prices);
-            if (maxProfit > 0) {
-                maxProfits.add(maxProfit);
+            int ithHighProfit = highProfitFor(i, prices);
+            if (ithHighProfit > 0) {
+                maxProfits.add(ithHighProfit);
             }
         }
 
@@ -49,7 +49,7 @@ class StockSellTiming {
         return Math.max(maxProfits.get(0), 0);
     }
 
-    private int getMaxProfit(int i, int[] prices) {
+    private int highProfitFor(int i, int[] prices) {
         int len = prices.length;
         int max = 0;
         for (int j = i + 1; j < len; j++) {
