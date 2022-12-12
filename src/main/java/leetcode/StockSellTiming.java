@@ -15,6 +15,10 @@ package leetcode;
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 class StockSellTiming {
 
     public static void main(String[] args) {
@@ -29,10 +33,22 @@ class StockSellTiming {
         // 자신과 자신 뒤에 있는 원소를 비교
         int len = prices.length;
         int max = Integer.MIN_VALUE;
+        List<Integer> maxProfits = new ArrayList<>();
         for (int i = 0; i < len; i++) {
+            int maxProfit = getMaxProfit(i, prices);
+            if (maxProfit > 0) {
+                maxProfits.add(maxProfit);
             }
         }
+
+        if (maxProfits.isEmpty())
+            return 0;
+
+        Collections.sort(maxProfits, Collections.reverseOrder());
         // profit이 모두 음수이면 0을 반환
+        return Math.max(maxProfits.get(0), 0);
+    }
+
     private int getMaxProfit(int i, int[] prices) {
         int len = prices.length;
         int max = 0;
