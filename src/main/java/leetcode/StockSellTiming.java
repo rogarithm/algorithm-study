@@ -38,9 +38,6 @@ class StockSellTiming {
             }
         }
         // profit이 모두 음수이면 0을 반환
-        if (max < 0) {
-            return 0;
-        }
-        return max;
+        return Math.max(max, 0);
     }
 }
