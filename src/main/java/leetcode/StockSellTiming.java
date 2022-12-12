@@ -15,6 +15,8 @@ package leetcode;
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 class StockSellTiming {
@@ -31,10 +33,18 @@ class StockSellTiming {
         // 자신과 자신 뒤에 있는 원소를 비교
         int len = prices.length;
         int max = Integer.MIN_VALUE;
+        List<Integer> cleanedUpPrices = new ArrayList<Integer>();
+        for (int i = 0; i < len; i++) {
+            if (prices[i] != 0) {
+                cleanedUpPrices.add(prices[i]);
+            }
+        }
+
         Stack<Integer> maxProfit = new Stack<>();
         maxProfit.push(0);
-        for (int i = 0; i < len; i++) {
-            int ithHighProfit = highProfitFor(i, prices);
+        int cleanedUpLength = cleanedUpPrices.size();
+        for (int i = 0; i < cleanedUpLength; i++) {
+            int ithHighProfit = highProfitFor(i, cleanedUpPrices);
             if (ithHighProfit > 0 && ithHighProfit > maxProfit.peek()) {
                 maxProfit.pop();
                 maxProfit.push(ithHighProfit);
@@ -48,9 +58,10 @@ class StockSellTiming {
         return Math.max(maxProfit.pop(), 0);
     }
 
-    private int highProfitFor(int i, int[] prices) {
-        int len = prices.length;
-        int max = 0;
+    private int highProfitFor(int i, List<Integer> prices) {
+        int len = prices.size();
+        Stack<Integer> max = new Stack<>();
+        max.push(0);
         for (int j = i + 1; j < len; j++) {
             int profit = prices.get(j) - prices.get(i);
             if (profit > max.peek()) { // 팔 때 가격이 더 높다면
