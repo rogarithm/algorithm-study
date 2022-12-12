@@ -31,9 +31,8 @@ class StockSellTiming {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < len; i++) {
             for (int j = i + 1; j < len; j++) {
-                if (prices[i] < prices[j]) { // 팔 때 가격이 더 높다면
-                    int profit = prices[j] - prices[i];
-                    if (profit > max)
+                int profit = prices[j] - prices[i];
+                if (profit > 0 && profit > max) { // 팔 때 가격이 더 높다면
                         max = profit;
                 }
             }
