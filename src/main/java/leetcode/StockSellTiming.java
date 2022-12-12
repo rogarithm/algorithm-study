@@ -20,9 +20,31 @@ class StockSellTiming {
     public static void main(String[] args) {
         StockSellTiming stockSellTiming = new StockSellTiming();
         System.out.println(stockSellTiming.maxProfit(new int[] { 1, 2 }) == 1);
+        System.out.println(stockSellTiming.maxProfit(new int[] { 7, 1, 5, 3, 6, 4}) == 5);
+        System.out.println(stockSellTiming.maxProfit(new int[] { 7, 6, 4, 3, 1 }) == 0);
     }
 
     public int maxProfit(int[] prices) {
-        return 1;
+        // 각 일마다 가능한 profit을 계산
+        // 자신과 자신 뒤에 있는 원소를 비교
+        int len = prices.length;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (i == j) {
+                    break;
+                }
+                if (prices[i] < prices[j]) { // 팔 때 가격이 더 높다면
+                    int profit = prices[j] - prices[i];
+                    if (profit > max)
+                        max = profit;
+                }
+            }
+        }
+        // profit이 모두 음수이면 0을 반환
+        if (max < 0) {
+            return 0;
+        }
+        return max;
     }
 }
