@@ -35,18 +35,17 @@ class StockSellTiming {
         // 자신과 자신 뒤에 있는 원소를 비교
         int len = prices.length;
         int max = Integer.MIN_VALUE;
-        List<Integer> cleanedUpPrices = new ArrayList<Integer>();
+        List<Integer> pricesInArrayList = new ArrayList<>();
+
         for (int i = 0; i < len; i++) {
-            if (prices[i] != 0) {
-                cleanedUpPrices.add(prices[i]);
-            }
+            pricesInArrayList.add(prices[i]);
         }
 
         Stack<Integer> maxProfit = new Stack<>();
         maxProfit.push(0);
-        int cleanedUpLength = cleanedUpPrices.size();
-        for (int i = 0; i < cleanedUpLength; i++) {
-            int ithHighProfit = highProfitFor(i, cleanedUpPrices);
+        int lenInArrayList = pricesInArrayList.size();
+        for (int i = 0; i < lenInArrayList; i++) {
+            int ithHighProfit = highProfitFor(i, pricesInArrayList);
             if (ithHighProfit > 0 && ithHighProfit > maxProfit.peek()) {
                 maxProfit.pop();
                 maxProfit.push(ithHighProfit);
