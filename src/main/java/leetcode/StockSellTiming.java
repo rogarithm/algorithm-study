@@ -15,9 +15,9 @@ package leetcode;
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
 
 class StockSellTiming {
 
@@ -30,12 +30,14 @@ class StockSellTiming {
         System.out.println(stockSellTiming.maxProfit(new int[]{2, 1, 2, 1, 0, 1, 2, 0, 0, 0, 0, 0}));
     }
 
+    // i마다 최대값을 계산한 후에는 i번째 값은 필요 없어진다. ArrayList로 구현하면 맨 앞 값 삭제에 O(N) 단계가 필요하므로
+    // 다른 방법을 쓰는 것이 좋을 것 같다.
     public int maxProfit(int[] prices) {
         // 각 일마다 가능한 profit을 계산
         // 자신과 자신 뒤에 있는 원소를 비교
         int len = prices.length;
         int max = Integer.MIN_VALUE;
-        List<Integer> pricesInArrayList = new ArrayList<>();
+        Deque<Integer> pricesInArrayList = new ArrayDeque<>();
 
         for (int i = 0; i < len; i++) {
             pricesInArrayList.add(prices[i]);
@@ -53,13 +55,15 @@ class StockSellTiming {
         return Math.max(max, 0);
     }
 
-    private int highProfitFor(int i, List<Integer> prices) {
-        int len = prices.size();
+    private int highProfitFor(int i, Deque<Integer> prices) {
         int max = Integer.MIN_VALUE;
-        for (int j = i + 1; j < len; j++) {
-            int profit = prices.get(j) - prices.get(i);
-            if (profit > max) { // 팔 때 가격이 더 높다면
+        Integer buyPrice = prices.pop();
+        for (Iterator itr = prices.iterator(); itr.hasNext();) {
+            Integer nextSellPrice = (Integer) itr.next();
+            int profit = nextSellPrice - buyPrice;
+            if (profit > 0 && profit > max) {
                 max = profit;
+                System.out.println("change max profit: " + max);
             }
         }
 
