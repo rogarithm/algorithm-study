@@ -55,16 +55,14 @@ class StockSellTiming {
 
     private int highProfitFor(int i, List<Integer> prices) {
         int len = prices.size();
-        Stack<Integer> max = new Stack<>();
-        max.push(0);
+        int max = Integer.MIN_VALUE;
         for (int j = i + 1; j < len; j++) {
             int profit = prices.get(j) - prices.get(i);
-            if (profit > max.peek()) { // 팔 때 가격이 더 높다면
-                max.pop();
-                max.push(profit);
+            if (profit > max) { // 팔 때 가격이 더 높다면
+                max = profit;
             }
         }
 
-        return Math.max(max.pop(), 0);
+        return Math.max(max, 0);
     }
 }
