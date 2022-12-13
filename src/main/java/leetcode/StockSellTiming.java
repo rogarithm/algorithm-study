@@ -41,22 +41,16 @@ class StockSellTiming {
             pricesInArrayList.add(prices[i]);
         }
 
-        Stack<Integer> maxProfit = new Stack<>();
-        maxProfit.push(0);
         int lenInArrayList = pricesInArrayList.size();
         for (int i = 0; i < lenInArrayList; i++) {
             int ithHighProfit = highProfitFor(i, pricesInArrayList);
-            if (ithHighProfit > 0 && ithHighProfit > maxProfit.peek()) {
-                maxProfit.pop();
-                maxProfit.push(ithHighProfit);
+            if (ithHighProfit > 0 && ithHighProfit > max) {
+                max = ithHighProfit;
             }
         }
 
-        if (maxProfit.isEmpty())
-            return 0;
-
         // profit이 모두 음수이면 0을 반환
-        return Math.max(maxProfit.pop(), 0);
+        return Math.max(max, 0);
     }
 
     private int highProfitFor(int i, List<Integer> prices) {
