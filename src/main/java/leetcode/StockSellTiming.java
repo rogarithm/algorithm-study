@@ -43,8 +43,7 @@ class StockSellTiming {
             deque.add(prices[i]);
         }
 
-        int lenInArrayList = deque.size();
-        for (int i = 0; i < lenInArrayList; i++) {
+        for (int i = 0; i < len; i++) {
             int ithHighProfit = highProfitFor(i, deque);
             if (ithHighProfit > 0 && ithHighProfit > max) {
                 max = ithHighProfit;
@@ -63,7 +62,6 @@ class StockSellTiming {
             int profit = nextSellPrice - buyPrice;
             if (profit > 0 && profit > max) {
                 max = profit;
-                System.out.println("change max profit: " + max);
             }
         }
 
