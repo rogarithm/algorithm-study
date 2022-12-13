@@ -37,15 +37,15 @@ class StockSellTiming {
         // 자신과 자신 뒤에 있는 원소를 비교
         int len = prices.length;
         int max = Integer.MIN_VALUE;
-        Deque<Integer> pricesInArrayList = new ArrayDeque<>();
+        Deque<Integer> deque = new ArrayDeque<>();
 
         for (int i = 0; i < len; i++) {
-            pricesInArrayList.add(prices[i]);
+            deque.add(prices[i]);
         }
 
-        int lenInArrayList = pricesInArrayList.size();
+        int lenInArrayList = deque.size();
         for (int i = 0; i < lenInArrayList; i++) {
-            int ithHighProfit = highProfitFor(i, pricesInArrayList);
+            int ithHighProfit = highProfitFor(i, deque);
             if (ithHighProfit > 0 && ithHighProfit > max) {
                 max = ithHighProfit;
             }
