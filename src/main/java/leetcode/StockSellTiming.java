@@ -26,8 +26,8 @@ class StockSellTiming {
         System.out.println(stockSellTiming.maxProfit(new int[] { 1, 2 }) == 1);
         System.out.println(stockSellTiming.maxProfit(new int[] { 7, 1, 5, 3, 6, 4}) == 5);
         System.out.println(stockSellTiming.maxProfit(new int[] { 7, 6, 4, 3, 1 }) == 0);
-        System.out.println(stockSellTiming.maxProfit(new int[]{2, 1, 2, 1, 0, 1, 2}));
-        System.out.println(stockSellTiming.maxProfit(new int[]{2, 1, 2, 1, 0, 1, 2, 0, 0, 0, 0, 0}));
+        System.out.println(stockSellTiming.maxProfit(new int[] { 2, 1, 2, 1, 0, 1, 2 }));
+        System.out.println(stockSellTiming.maxProfit(new int[] { 2, 1, 2, 1, 0, 1, 2, 0, 0, 0, 0, 0 }));
     }
 
     // i마다 최대값을 계산한 후에는 i번째 값은 필요 없어진다. ArrayList로 구현하면 맨 앞 값 삭제에 O(N) 단계가 필요하므로
