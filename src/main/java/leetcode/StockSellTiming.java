@@ -28,43 +28,32 @@ class StockSellTiming {
         System.out.println(stockSellTiming.maxProfit(new int[] { 7, 6, 4, 3, 1 }) == 0);
         System.out.println(stockSellTiming.maxProfit(new int[] { 2, 1, 2, 1, 0, 1, 2 }));
         System.out.println(stockSellTiming.maxProfit(new int[] { 2, 1, 2, 1, 0, 1, 2, 0, 0, 0, 0, 0 }));
+        // 2중 for문을 쓰지 않아도 될까?
+        // 구입 가격은 최소, 판매 가격은 최대가 되어야 한다.
+        // 2중 for문을 쓰면 가능한 모든 케이스를 계산한다.
+        // 구입 가격이 최소가 아니더라도 판매 가격과의 차이로 보면 답인 경우가 있을까?
+        // 다음 케이스에서 최소 구입 가격은 0이다. 하지만 이익이 가장 크게 남는 경우의 구입 가격은 0이 아닌 1이다.
+        System.out.println(stockSellTiming.maxProfit(new int[] { 1, 8, 0, 3 }));
+        // 판매일은 구입일보다 적어도 1일 뒤에 있다.
     }
 
     // i마다 최대값을 계산한 후에는 i번째 값은 필요 없어진다. ArrayList로 구현하면 맨 앞 값 삭제에 O(N) 단계가 필요하므로
     // 다른 방법을 쓰는 것이 좋을 것 같다.
     public int maxProfit(int[] prices) {
-        // 각 일마다 가능한 profit을 계산
-        // 자신과 자신 뒤에 있는 원소를 비교
         int len = prices.length;
-        int max = Integer.MIN_VALUE;
-        Deque<Integer> deque = new ArrayDeque<>();
+        int leastBuyPrice = Integer.MAX_VALUE;
+        int priceIfSellToday = 0;
+        int currentMaxProfit = 0;
 
         for (int i = 0; i < len; i++) {
-            deque.add(prices[i]);
-        }
-
-        for (int i = 0; i < len; i++) {
-            int ithHighProfit = highProfitFor(i, deque);
-            if (ithHighProfit > 0 && ithHighProfit > max) {
-                max = ithHighProfit;
+            if (prices[i] < leastBuyPrice) {
+                leastBuyPrice = prices[i];
+            }
+            priceIfSellToday = prices[i] - leastBuyPrice;
+            if (priceIfSellToday > currentMaxProfit) {
+                currentMaxProfit = priceIfSellToday;
             }
         }
-
-        // profit이 모두 음수이면 0을 반환
-        return Math.max(max, 0);
-    }
-
-    private int highProfitFor(int i, Deque<Integer> prices) {
-        int max = Integer.MIN_VALUE;
-        Integer buyPrice = prices.pop();
-        for (Iterator itr = prices.iterator(); itr.hasNext();) {
-            Integer nextSellPrice = (Integer) itr.next();
-            int profit = nextSellPrice - buyPrice;
-            if (profit > 0 && profit > max) {
-                max = profit;
-            }
-        }
-
-        return Math.max(max, 0);
+        return currentMaxProfit;
     }
 }
