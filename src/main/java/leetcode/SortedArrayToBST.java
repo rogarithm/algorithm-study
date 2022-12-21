@@ -29,7 +29,13 @@ public class SortedArrayToBST {
     }
 
     public TreeNode sortedArrayToBST(int[] nums) {
-        return new TreeNode(1);
+        if (nums.length == 1) {
+            return new TreeNode(nums[0]);
+        }
+        if (nums.length == 2) {
+            return new TreeNode(nums[1], new TreeNode(nums[0]), null);
+        }
+        return null;
     }
 
     private static class TreeNode {
