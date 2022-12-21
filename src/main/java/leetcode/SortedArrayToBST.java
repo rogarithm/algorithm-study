@@ -26,6 +26,12 @@ public class SortedArrayToBST {
 
         // 값이 셋 있으면 셋 중 중간 값을 root로, 작은 값을 left로, 큰 값을 right로 하는
         // TreeNode를 만든다
+        int[] testCase3 = {1, 2, 3};
+        TreeNode testResult3 = tester.sortedArrayToBST(testCase3);
+        System.out.println(
+                testResult3.val == 2 && testResult3.left.val == 1
+                && testResult3.right.val == 3
+        );
 
         // 배열의 요소 갯수가 홀수 개라면, 중간 위치의 값을 root로 하고 root 왼쪽 요소들이 left TreeNode, root 오른쪽
         // 요소들이 right TreeNode가 되는 TreeNode를 만든다
