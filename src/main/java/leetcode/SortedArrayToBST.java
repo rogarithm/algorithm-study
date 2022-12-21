@@ -24,7 +24,7 @@ public class SortedArrayToBST {
     }
 
     public TreeNode sortedArrayToBST(int[] nums) {
-        return new TreeNode();
+        return new TreeNode(1);
     }
 
     private static class TreeNode {
