@@ -44,6 +44,9 @@ public class SortedArrayToBST {
         if (nums.length == 2) {
             return new TreeNode(nums[1], new TreeNode(nums[0]), null);
         }
+        if (nums.length == 3) {
+            return new TreeNode(nums[1], new TreeNode(nums[0]), new TreeNode(nums[2]));
+        }
         return null;
     }
 
