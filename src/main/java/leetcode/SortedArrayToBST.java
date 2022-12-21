@@ -15,6 +15,11 @@ public class SortedArrayToBST {
 
         // 값이 둘 있으면 둘 중 작은 값을 root로, 큰 값을 right로 하는 TreeNode를 만들거나,
         // 둘 중 큰 값을 root로, 작은 값을 left로 하는 TreeNode를 만든다
+        TreeNode testCase2 = tester.sortedArrayToBST(new int[]{1, 2});
+        System.out.println(
+                testCase2.val == 1 && testCase2.right.val == 2
+                || testCase2.val == 2 && testCase2.left.val == 1
+        );
 
         // 값이 셋 있으면 셋 중 중간 값을 root로, 작은 값을 left로, 큰 값을 right로 하는
         // TreeNode를 만든다
