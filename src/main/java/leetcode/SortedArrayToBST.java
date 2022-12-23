@@ -45,6 +45,14 @@ public class SortedArrayToBST {
                 && testResult4.left.left.val == 1 && testResult4.right.val == 5
                 && testResult4.right.left.val == 4
         );
+
+        int[] testCase5 = {1, 2, 3, 4, 5, 6};
+        TreeNode testResult5 = tester.sortedArrayToBST(testCase5);
+        System.out.println(testResult5.toString());
+
+        int[] leetcodeCase1 = {-10,-3,0,5,9};
+        TreeNode testResult6 = tester.sortedArrayToBST(leetcodeCase1);
+        System.out.println(testResult6.toString());
     }
 
     public TreeNode sortedArrayToBST(int[] nums) {
