@@ -35,13 +35,13 @@ public class PascalsTriangle {
 
     private ArrayList<Integer> prepareElementsInRow(int rowNumber) {
         if (rowNumber == 1) {
-            ArrayList<Integer> elem = new ArrayList<>(rowNumber);
+            ArrayList<Integer> elem = new ArrayList<>();
             elem.add(1);
             return elem;
         }
 
         if (rowNumber == 2) {
-            ArrayList<Integer> elem = new ArrayList<>(rowNumber);
+            ArrayList<Integer> elem = new ArrayList<>();
             elem.add(1);
             elem.add(1);
             return elem;
