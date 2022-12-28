@@ -14,6 +14,11 @@ public class PascalsTriangle {
     }
 
     public List<List<Integer>> generate(int numRows) {
-        return new ArrayList<List<Integer>>();
+        ArrayList<Integer> elem = new ArrayList<>();
+        elem.add(1);
+        ArrayList<List<Integer>> result = new ArrayList<>();
+        result.add(elem);
+
+        return result;
     }
 }
