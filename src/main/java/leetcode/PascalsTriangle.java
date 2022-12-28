@@ -11,6 +11,7 @@ public class PascalsTriangle {
     public static void main(String[] args) {
         PascalsTriangle tester = new PascalsTriangle();
         System.out.println(tester.generate(1));
+        System.out.println(tester.generate(2));
     }
 
     public List<List<Integer>> generate(int numRows) {
