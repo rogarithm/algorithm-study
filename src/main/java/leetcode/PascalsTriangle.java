@@ -27,28 +27,28 @@ public class PascalsTriangle {
         }
 
         for (int i = 1; i <= numRows; i++) {
-            ArrayList<Integer> elemsInRowI = prepareElementsInRow(i);
-            result.add(elemsInRowI);
+            ArrayList<Integer> elemsAtRow = prepareElemsAtRow(i);
+            result.add(elemsAtRow);
         }
 
         return result;
     }
 
-    private ArrayList<Integer> prepareElementsInRow(int rowNumber) {
-        if (rowNumber == 1) {
+    private ArrayList<Integer> prepareElemsAtRow(int row) {
+        if (row == 1) {
             ArrayList<Integer> elem = new ArrayList<>();
             elem.add(1);
             return elem;
         }
 
-        if (rowNumber == 2) {
+        if (row == 2) {
             ArrayList<Integer> elem = new ArrayList<>();
             elem.add(1);
             elem.add(1);
             return elem;
         }
 
-        if (rowNumber == 3) {
+        if (row == 3) {
             ArrayList<Integer> elem = new ArrayList<>();
             elem.add(1);
             elem.add(2);
