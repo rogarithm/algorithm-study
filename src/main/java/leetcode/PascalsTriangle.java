@@ -12,6 +12,7 @@ public class PascalsTriangle {
         PascalsTriangle tester = new PascalsTriangle();
         System.out.println(tester.generate(1));
         System.out.println(tester.generate(2));
+        System.out.println(tester.generate(3));
     }
 
     public List<List<Integer>> generate(int numRows) {
@@ -43,6 +44,14 @@ public class PascalsTriangle {
         if (rowNumber == 2) {
             ArrayList<Integer> elem = new ArrayList<>();
             elem.add(1);
+            elem.add(1);
+            return elem;
+        }
+
+        if (rowNumber == 3) {
+            ArrayList<Integer> elem = new ArrayList<>();
+            elem.add(1);
+            elem.add(2);
             elem.add(1);
             return elem;
         }
