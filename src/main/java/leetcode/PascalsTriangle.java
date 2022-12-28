@@ -21,22 +21,32 @@ public class PascalsTriangle {
 
         ArrayList<List<Integer>> result = new ArrayList<>();
 
-        if (numRows == 1) {
-            ArrayList<Integer> elem = new ArrayList<>();
-            elem.add(1);
-            result.add(elem);
+        if (numRows <= 0) {
+            return null;
         }
 
-        if (numRows == 2) {
-            ArrayList<Integer> elemRow1 = new ArrayList<>();
-            elemRow1.add(1);
-            result.add(elemRow1);
-            ArrayList<Integer> elemRow2 = new ArrayList<>();
-            elemRow2.add(1);
-            elemRow2.add(1);
-            result.add(elemRow2);
+        for (int i = 1; i <= numRows; i++) {
+            ArrayList<Integer> elemsInRowI = prepareElementsInRow(i);
+            result.add(elemsInRowI);
         }
 
         return result;
+    }
+
+    private ArrayList<Integer> prepareElementsInRow(int rowNumber) {
+        if (rowNumber == 1) {
+            ArrayList<Integer> elem = new ArrayList<>(rowNumber);
+            elem.add(1);
+            return elem;
+        }
+
+        if (rowNumber == 2) {
+            ArrayList<Integer> elem = new ArrayList<>(rowNumber);
+            elem.add(1);
+            elem.add(1);
+            return elem;
+        }
+
+        return null;
     }
 }
