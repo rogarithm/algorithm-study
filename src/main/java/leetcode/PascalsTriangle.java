@@ -15,10 +15,23 @@ public class PascalsTriangle {
     }
 
     public List<List<Integer>> generate(int numRows) {
-        ArrayList<Integer> elem = new ArrayList<>();
-        elem.add(1);
         ArrayList<List<Integer>> result = new ArrayList<>();
-        result.add(elem);
+
+        if (numRows == 1) {
+            ArrayList<Integer> elem = new ArrayList<>();
+            elem.add(1);
+            result.add(elem);
+        }
+
+        if (numRows == 2) {
+            ArrayList<Integer> elemRow1 = new ArrayList<>();
+            elemRow1.add(1);
+            result.add(elemRow1);
+            ArrayList<Integer> elemRow2 = new ArrayList<>();
+            elemRow2.add(1);
+            elemRow2.add(1);
+            result.add(elemRow2);
+        }
 
         return result;
     }
