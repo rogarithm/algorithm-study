@@ -48,6 +48,10 @@ public class PascalsTriangle {
             return elem;
         }
 
+        /* 0 1 */
+        /* 0 1=2.0+2.1 2 */
+        /* 0 1=3.0+3.1 2=3.1+3.2 3 */
+        /* 바로 위 행의 계산 결과를 어떻게 가져오지? */
         if (row == 3) {
             ArrayList<Integer> elem = new ArrayList<>();
             elem.add(1);
