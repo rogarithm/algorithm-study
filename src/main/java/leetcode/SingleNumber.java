@@ -6,7 +6,8 @@ package leetcode;
 public class SingleNumber {
 
     public static void main(String[] args) {
-
+        SingleNumber tester = new SingleNumber();
+        System.out.println(tester.singleNumber(new int[]{1}));
     }
 
     public int singleNumber(int[] nums) {
