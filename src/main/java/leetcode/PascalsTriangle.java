@@ -53,7 +53,8 @@ public class PascalsTriangle {
         /* 0 1=3.0+3.1 2=3.1+3.2 3 */
         /* 바로 위 행의 계산 결과를 어떻게 가져오지? */
         if (row == 3) {
-            List<Integer> previous = result.get(2 - 1);
+            int previousIndex = row - 2;
+            List<Integer> previous = result.get(previousIndex);
             ArrayList<Integer> elem = new ArrayList<>();
             elem.add(1);
             elem.add(previous.get(0) + previous.get(1));
