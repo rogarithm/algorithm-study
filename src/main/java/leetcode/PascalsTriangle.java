@@ -17,10 +17,6 @@ public class PascalsTriangle {
     }
 
     public List<List<Integer>> generate(int numRows) {
-        /* numRow는 해당 행의 요소 갯수와도 일치한다 */
-        /* 각 행에 들어갈 array list 생성 시 안에 넣을 수 있는 요소 갯수도 정해야 할까? */
-        /* 이전 행의 인덱스를 기준으로 새로 만들려는 행의 요소 값을 계산할 수 있을까? */
-
         ArrayList<List<Integer>> result = new ArrayList<>();
 
         if (numRows <= 0) {
@@ -49,10 +45,6 @@ public class PascalsTriangle {
             return elem;
         }
 
-        /* 0 1 */
-        /* 0 1=2.0+2.1 2 */
-        /* 0 1=3.0+3.1 2=3.1+3.2 3 */
-        /* 바로 위 행의 계산 결과를 어떻게 가져오지? */
         if (row >= 3) {
             int previousIndex = row - 2;
             List<Integer> previous = result.get(previousIndex);
@@ -60,9 +52,9 @@ public class PascalsTriangle {
             for (int i = 0; i < row; i++) {
                 if (i == 0 || i == row - 1) {
                     elem.add(1);
-                }
-                else
+                } else {
                     elem.add(previous.get(i - 1) + previous.get(i));
+                }
             }
             return elem;
         }
