@@ -67,10 +67,13 @@ public class PascalsTriangle {
             int previousIndex = row - 2;
             List<Integer> previous = result.get(previousIndex);
             ArrayList<Integer> elem = new ArrayList<>();
-            elem.add(1);
-            elem.add(previous.get(0) + previous.get(1));
-            elem.add(previous.get(1) + previous.get(2));
-            elem.add(1);
+            for (int i = 0; i < row; i++) {
+                if (i == 0 || i == row - 1) {
+                    elem.add(1);
+                }
+                else
+                    elem.add(previous.get(i - 1) + previous.get(i));
+            }
             return elem;
         }
 
