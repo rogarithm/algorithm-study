@@ -15,6 +15,7 @@ public class SingleNumber {
         System.out.println(tester.singleNumber(new int[]{1,1,2}));
         System.out.println(tester.singleNumber(new int[]{1,2,3,2,3}));
         System.out.println(tester.singleNumber(new int[]{4,1,2,1,2}));
+        System.out.println(tester.singleNumber(new int[]{1,0,1}));
     }
 
     public int singleNumber(int[] nums) {
