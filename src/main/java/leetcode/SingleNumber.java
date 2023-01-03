@@ -24,12 +24,13 @@ public class SingleNumber {
         int result = 0;
 
         for (int num = 0; num < nums.length; num++) {
-            if (cache.get(nums[num]) != null) {
-                cache.remove(nums[num]);
+            int key = nums[num];
+            if (cache.get(key) != null) {
+                cache.remove(key);
             }
             else {
-                result = nums[num];
-                cache.put(nums[num], 1);
+                result = key; /* 이렇게 하면 첫 번째로 나오는 숫자 모두 result에 할당된다 */
+                cache.put(key, 1);
             }
         }
         return result;
