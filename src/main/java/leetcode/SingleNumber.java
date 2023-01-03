@@ -5,6 +5,7 @@ package leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 public class SingleNumber {
 
@@ -21,18 +22,20 @@ public class SingleNumber {
         /* 정답 후보를 기억하고 있으면서 같은 숫자가 한 번 더 나오면 제외하기 */
         /* 입력의 끝에 있는 요소에 다다르기 전에 정답 후보가 하나 이상일 수 있다. 어떤 자료구조에 저장해놓는 게 좋을까? */
         Map<Integer, Integer> cache = new HashMap<>();
-        int result = 0;
+        Stack<Integer> result = new Stack<>();
 
         for (int num = 0; num < nums.length; num++) {
             int key = nums[num];
-            if (cache.get(key) != null) {
-                cache.remove(key);
-            }
-            else {
-                result = key; /* 이렇게 하면 첫 번째로 나오는 숫자 모두 result에 할당된다 */
+            if (cache.get(key) == null) {
                 cache.put(key, 1);
+                result.push(key);
+            }
+            else if (cache.get(key) == 1) {
+                cache.remove(key);
+                result.pop();
             }
         }
-        return result;
+
+        return result.peek();
     }
 }
