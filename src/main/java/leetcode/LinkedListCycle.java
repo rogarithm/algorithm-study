@@ -29,6 +29,8 @@ public class LinkedListCycle {
         if (head.next == null) // 재귀함수로 만들 경우에도 이 조건이 유효한가? 유효하다. 유효한 순환 LinkedList는 모든 ListNode가 next 필드를 가져야 한다.
             return false;
         // 마지막 요소인지 판별할 수 있는 조건이 있나? 순회하는 요소 목록을 기록해야 할까?
+        // 문제에서 제시하는 것처럼 인덱스 값을 추가할 수 있다면 마지막인지 판별할 수 있을 것 같다.
+        // 객체 주소가 같은지를 비교하면 값이 같더라도 다른 노드인지 확인할 수 있을 것 같다.
         if (head.next.next == null)
             return false;
         else
