@@ -11,11 +11,17 @@ public class LinkedListCycle {
     public static void main(String[] args) {
         LinkedListCycle tester = new LinkedListCycle();
         ListNode l1 = new ListNode(1);
+        ListNode l2 = new ListNode(1);
+        l2.next = new ListNode(2);
+
         System.out.println(tester.hasCycle(l1) == false);
+        System.out.println(tester.hasCycle(l2) == true);
     }
 
     public boolean hasCycle(ListNode head) {
-        return false;
+        if (head.next == null)
+            return false;
+        return true;
     }
 
     // Definition for singly-linked list.
