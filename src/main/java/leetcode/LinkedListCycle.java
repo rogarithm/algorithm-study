@@ -10,7 +10,8 @@ public class LinkedListCycle {
 
     public static void main(String[] args) {
         LinkedListCycle tester = new LinkedListCycle();
-        System.out.println(tester.hasCycle(new ListNode(1)) == false);
+        ListNode l1 = new ListNode(1);
+        System.out.println(tester.hasCycle(l1) == false);
     }
 
     public boolean hasCycle(ListNode head) {
