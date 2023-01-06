@@ -11,13 +11,18 @@ public class LinkedListCycle {
     public static void main(String[] args) {
         LinkedListCycle tester = new LinkedListCycle();
         ListNode l1 = new ListNode(1);
+        System.out.println(tester.hasCycle(l1) == false);
+
         ListNode l2 = new ListNode(1);
         ListNode l2Next = new ListNode(2);
         l2.next = l2Next;
         l2Next.next = l1;
-
-        System.out.println(tester.hasCycle(l1) == false);
         System.out.println(tester.hasCycle(l2) == true);
+
+        ListNode l3 = new ListNode(1);
+        ListNode l3Next = new ListNode(2);
+        l2.next = l2Next;
+        System.out.println(tester.hasCycle(l3) == false);
     }
 
     public boolean hasCycle(ListNode head) {
