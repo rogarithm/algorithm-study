@@ -12,7 +12,9 @@ public class LinkedListCycle {
         LinkedListCycle tester = new LinkedListCycle();
         ListNode l1 = new ListNode(1);
         ListNode l2 = new ListNode(1);
-        l2.next = new ListNode(2);
+        ListNode l2Next = new ListNode(2);
+        l2.next = l2Next;
+        l2Next.next = l1;
 
         System.out.println(tester.hasCycle(l1) == false);
         System.out.println(tester.hasCycle(l2) == true);
