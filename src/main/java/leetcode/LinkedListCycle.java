@@ -21,7 +21,7 @@ public class LinkedListCycle {
 
         ListNode l3 = new ListNode(1);
         ListNode l3Next = new ListNode(2);
-        l2.next = l2Next;
+        l3.next = l3Next;
         System.out.println(tester.hasCycle(l3) == false);
     }
 
