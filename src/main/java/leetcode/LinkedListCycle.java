@@ -21,8 +21,9 @@ public class LinkedListCycle {
     }
 
     public boolean hasCycle(ListNode head) {
-        if (head.next == null)
+        if (head.next == null) // 재귀함수로 만들 경우에도 이 조건이 유효한가? 유효하다. 유효한 순환 LinkedList는 모든 ListNode가 next 필드를 가져야 한다.
             return false;
+        // 마지막 요소인지 판별할 수 있는 조건이 있나? 순회하는 요소 목록을 기록해야 할까?
         return true;
     }
 
