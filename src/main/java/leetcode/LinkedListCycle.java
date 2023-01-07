@@ -51,9 +51,8 @@ public class LinkedListCycle {
             cache.put(head, true);
         }
 
-        ListNode nextElement = head;
-        while (nextElement.next != null) {
-            nextElement = nextElement.next;
+        ListNode nextElement = head.next;
+        while (nextElement != null) {
             if (cache.get(nextElement) == null) {
                 cache.put(nextElement, true);
             }
@@ -61,6 +60,7 @@ public class LinkedListCycle {
                 result = true;
                 break;
             }
+            nextElement = nextElement.next;
         }
 
         return result;
