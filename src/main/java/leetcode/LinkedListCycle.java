@@ -32,6 +32,10 @@ public class LinkedListCycle {
         Map<ListNode, Boolean> cache = new HashMap<>();
         boolean result = false;
 
+        if (head == null) {
+            return result;
+        }
+
         if (head != null) {
             cache.put(head, true);
         }
