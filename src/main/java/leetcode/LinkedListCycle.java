@@ -45,6 +45,7 @@ public class LinkedListCycle {
 
     private boolean getListNodeLength(ListNode head) {
         Map<ListNode, Boolean> cache = new HashMap<>();
+        boolean result = false;
 
         if (head != null) {
             cache.put(head, true);
@@ -56,11 +57,13 @@ public class LinkedListCycle {
             if (cache.get(nextElement) == null) {
                 cache.put(nextElement, true);
             }
-            if (cache.get(nextElement) != null && cache.get(nextElement) == true)
+            else if (cache.get(nextElement) != null && cache.get(nextElement) == true) {
+                result = true;
                 break;
+            }
         }
 
-        return false;
+        return result;
     }
 
     // Definition for singly-linked list.
