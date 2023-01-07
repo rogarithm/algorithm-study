@@ -20,7 +20,7 @@ public class LinkedListCycle {
         ListNode l2 = new ListNode(1);
         ListNode l2Next = new ListNode(2);
         l2.next = l2Next;
-        l2Next.next = l1;
+        l2Next.next = l2;
         System.out.println(tester.hasCycle(l2) == true);
         System.out.println(tester.getListNodeLength(l2) == true);
 
