@@ -45,11 +45,9 @@ public class LinkedListCycle {
 
     private boolean getListNodeLength(ListNode head) {
         Map<ListNode, Boolean> cache = new HashMap<>();
-        int index = 0;
 
         if (head != null) {
             cache.put(head, true);
-            index++;
         }
 
         ListNode nextElement = head;
@@ -57,7 +55,6 @@ public class LinkedListCycle {
             nextElement = nextElement.next;
             if (cache.get(nextElement) == null) {
                 cache.put(nextElement, true);
-                index++;
             }
             if (cache.get(nextElement) != null && cache.get(nextElement) == true)
                 break;
