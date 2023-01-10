@@ -17,24 +17,13 @@ public class IntersectionOfTwoLinkedLists {
         System.out.println(tester.getIntersectionNode(null, new ListNode(1)) == null);
 
         ListNode intersect1 = new ListNode(3);
-        ListNode head1 = new ListNode(1);
-        head1.next = intersect1;
-        ListNode head2 = new ListNode(2);
-        head2.next = intersect1;
+        ListNode head1 = new ListNode(1, intersect1);
+        ListNode head2 = new ListNode(2, intersect1);
         System.out.println(tester.getIntersectionNode(head1, head2) == intersect1);
 
-        ListNode intersect2 = new ListNode(8);
-        intersect2.next = new ListNode(4);
-        ListNode a1 = new ListNode(4);
-        ListNode a2 = new ListNode(1);
-        a1.next = a2;
-        a2.next = intersect2;
-        ListNode b1 = new ListNode(5);
-        ListNode b2 = new ListNode(6);
-        ListNode b3 = new ListNode(1);
-        b1.next = b2;
-        b2.next = b3;
-        b3.next = intersect2;
+        ListNode intersect2 = new ListNode(8, new ListNode(4));
+        ListNode a1 = new ListNode(4, new ListNode(1, intersect2));
+        ListNode b1 = new ListNode(5, new ListNode(6, new ListNode(1, intersect2)));
         System.out.println(tester.getIntersectionNode(a1, b1) == intersect2);
     }
 
@@ -70,6 +59,11 @@ public class IntersectionOfTwoLinkedLists {
         ListNode(int x) {
             val = x;
             next = null;
+        }
+
+        ListNode(int x, ListNode node) {
+            val = x;
+            next = node;
         }
     }
 
