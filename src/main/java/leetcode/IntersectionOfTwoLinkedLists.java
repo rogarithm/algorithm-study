@@ -22,6 +22,20 @@ public class IntersectionOfTwoLinkedLists {
         ListNode head2 = new ListNode(2);
         head2.next = intersect1;
         System.out.println(tester.getIntersectionNode(head1, head2) == intersect1);
+
+        ListNode intersect2 = new ListNode(8);
+        intersect2.next = new ListNode(4);
+        ListNode a1 = new ListNode(4);
+        ListNode a2 = new ListNode(1);
+        a1.next = a2;
+        a2.next = intersect2;
+        ListNode b1 = new ListNode(5);
+        ListNode b2 = new ListNode(6);
+        ListNode b3 = new ListNode(1);
+        b1.next = b2;
+        b2.next = b3;
+        b3.next = intersect2;
+        System.out.println(tester.getIntersectionNode(a1, b1) == intersect2);
     }
 
     // 교차하는 노드는 두 ListNode가 공유하는 노드여야 한다. 즉 같은 객체여야 한다.
