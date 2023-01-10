@@ -5,6 +5,9 @@ package leetcode;
 // The test cases are generated such that there are no cycles anywhere in the entire linked structure.
 // Note that the linked lists must retain their original structure after the function returns.
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class IntersectionOfTwoLinkedLists {
 
     public static void main(String[] args) {
@@ -27,8 +30,21 @@ public class IntersectionOfTwoLinkedLists {
             return null;
         }
 
-        if (headA.next.equals(headB.next)) {
-            return headA.next;
+        // 매개변수 중 한쪽 listnode를 hashmap에 저장한다
+        Map<ListNode, Boolean> cache = new HashMap<>();
+        ListNode key = headA;
+        while (key != null) {
+            cache.put(key, true);
+            key = key.next;
+        }
+
+        // 남은 매개변수의 listnode를 스캔하면서 공유하는 노드가 있는지(같은 객체가 있는지) 확인한다
+        ListNode candidate = headB;
+        while (candidate != null) {
+            if (cache.get(candidate) != null && cache.get(candidate) == true) {
+                return candidate;
+            }
+            candidate = candidate.next;
         }
 
         return null;
