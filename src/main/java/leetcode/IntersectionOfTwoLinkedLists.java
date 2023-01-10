@@ -23,6 +23,14 @@ public class IntersectionOfTwoLinkedLists {
 
     // 교차하는 노드는 두 ListNode가 공유하는 노드여야 한다. 즉 같은 객체여야 한다.
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        if (headA.next.equals(headB.next)) {
+            return headA.next;
+        }
+
         return null;
     }
 
