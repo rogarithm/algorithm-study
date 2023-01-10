@@ -8,7 +8,10 @@ package leetcode;
 public class IntersectionOfTwoLinkedLists {
 
     public static void main(String[] args) {
-
+        IntersectionOfTwoLinkedLists tester = new IntersectionOfTwoLinkedLists();
+        System.out.println(tester.getIntersectionNode(null, null) == null);
+        System.out.println(tester.getIntersectionNode(new ListNode(1), null) == null);
+        System.out.println(tester.getIntersectionNode(null, new ListNode(1)) == null);
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
