@@ -7,7 +7,8 @@ package leetcode;
 public class MajorityElement {
 
     public static void main(String[] args) {
-
+        MajorityElement tester = new MajorityElement();
+        System.out.println(tester.majorityElement(new int[]{3, 2, 3}) == 3);
     }
 
     public int majorityElement(int[] nums) {
