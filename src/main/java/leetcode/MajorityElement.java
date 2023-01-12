@@ -11,6 +11,10 @@ public class MajorityElement {
         System.out.println(tester.majorityElement(new int[]{3, 2, 3}) == 3);
     }
 
+    // hashmap에 (숫자, 횟수)를 넣고 횟수가 n/2 이상인 숫자를 검색하는 것은 어떨까?
+    // 하지만 값을 기준으로 숫자를 검색하는 것은 간단한 경우에도 어려웠던 것으로 기억한다.
+
+    // 반복하면서 횟수가 n/2 이상인 숫자가 나오면 멈추고 그 숫자를 반환하는 건 어떨까?
     public int majorityElement(int[] nums) {
         return 0;
     }
