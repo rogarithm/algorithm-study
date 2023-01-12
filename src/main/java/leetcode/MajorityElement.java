@@ -14,6 +14,7 @@ public class MajorityElement {
     public static void main(String[] args) {
         MajorityElement tester = new MajorityElement();
         System.out.println(tester.majorityElement(new int[]{3, 2, 3}) == 3);
+        System.out.println(tester.majorityElement(new int[]{2,2,1,1,1,2,2}) == 2);
     }
 
     // hashmap에 (숫자, 횟수)를 넣고 횟수가 n/2 이상인 숫자를 검색하는 것은 어떨까?
