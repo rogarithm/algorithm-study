@@ -6,6 +6,8 @@ package leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class MajorityElement {
 
@@ -30,9 +32,13 @@ public class MajorityElement {
         }
 
         int threshold = nums.length / 2;
-        if (candidates.get(3) > threshold) {
-            return 3;
+        Set<Entry<Integer, Integer>> entries = candidates.entrySet();
+        for (Entry<Integer, Integer> entry : entries) {
+            if (entry.getValue() > threshold) {
+                return entry.getKey();
+            }
         }
+
         return 0;
     }
 
