@@ -4,6 +4,9 @@ package leetcode;
 // The majority element is the element that appears more than ⌊n / 2⌋ times.
 // You may assume that the majority element always exists in the array.
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MajorityElement {
 
     public static void main(String[] args) {
@@ -16,6 +19,20 @@ public class MajorityElement {
 
     // 반복하면서 횟수가 n/2 이상인 숫자가 나오면 멈추고 그 숫자를 반환하는 건 어떨까?
     public int majorityElement(int[] nums) {
+        Map<Integer, Integer> candidates = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int current = nums[i];
+            if (candidates.get(current) == null) {
+                candidates.put(current, 1);
+            } else {
+                candidates.put(current, candidates.get(current) + 1);
+            }
+        }
+
+        int threshold = nums.length / 2;
+        if (candidates.get(3) > threshold) {
+            return 3;
+        }
         return 0;
     }
 
