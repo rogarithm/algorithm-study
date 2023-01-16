@@ -18,6 +18,10 @@ public class ReverseLinkedList {
         ListNode n3 = new ListNode(1, new ListNode(2, new ListNode(3)));
         ListNode rvsdn3 = tester.reverseList(n3);
 
+        ListNode n4 = new ListNode(1, new ListNode(-2, new ListNode(-5, new ListNode(0, new ListNode(-4)))));
+        ListNode rvsdn4 = tester.reverseList(n4);
+        System.out.println(rvsdn4.toString());
+
         System.out.println(tester.add(n1, 3).next.next.val);
 
         System.out.println(rvsdn1.toString());
@@ -50,6 +54,7 @@ public class ReverseLinkedList {
         if (list == null) {
             return null;
         }
+        // [1,-2,-5,0,-4] 케이스를 통과시키려면 아래 조건을 다르게 짜야할 것 같다
         if (list.val == 0) {
             return new ListNode(elem);
         }
