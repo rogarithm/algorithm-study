@@ -17,7 +17,11 @@ public class ReverseLinkedList {
 
         ListNode n3 = new ListNode(1, new ListNode(2, new ListNode(3)));
         ListNode rvsdn3 = tester.reverseList(n3);
+
         System.out.println(tester.add(n1, 3).next.next.val);
+
+        System.out.println(rvsdn1.toString());
+        System.out.println(rvsdn3.toString());
     }
 
     public ListNode reverseList(ListNode head) {
@@ -71,6 +75,24 @@ public class ReverseLinkedList {
         ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
+        }
+
+        public String toString() {
+            String result = "";
+            ListNode list = this;
+
+            if (list == null)
+                return "EMPTY";
+
+            if (list.val != 0)
+                result = Integer.toString(this.val) + " ";
+
+            while (list.next != null) {
+                result += list.next.val + " ";
+                list = list.next;
+            }
+
+            return result;
         }
     }
 
