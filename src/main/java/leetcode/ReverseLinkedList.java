@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Stack;
+
 public class ReverseLinkedList {
 
     public static void main(String[] args) {
@@ -10,8 +12,11 @@ public class ReverseLinkedList {
         ListNode n1 = new ListNode(1, new ListNode(2));
         ListNode n2 = new ListNode(2, new ListNode(1));
         ListNode rvsdn1 = tester.reverseList(n1);
-        System.out.println(rvsdn1.val == n2.val);
-        System.out.println(rvsdn1.next.val == n2.next.val);
+        //System.out.println(rvsdn1.val == n2.val);
+        //System.out.println(rvsdn1.next.val == n2.next.val);
+
+        ListNode n3 = new ListNode(1, new ListNode(2, new ListNode(3)));
+        ListNode rvsdn3 = tester.reverseList(n3);
     }
 
     public ListNode reverseList(ListNode head) {
@@ -19,7 +24,21 @@ public class ReverseLinkedList {
             return null;
         }
 
-        return new ListNode(2, new ListNode(1));
+        // head의 첫 요소가 result의 마지막으로 가야 한다
+        // 다른 자료구조에 head 안 요소를 담아두고, 끝부터 result에 넣으면 어떨까?
+        Stack<Integer> acc = new Stack<>();
+        while (head != null) {
+            acc.push(head.val);
+            head = head.next;
+        }
+
+        ListNode result = new ListNode();
+        while (!acc.isEmpty()) {
+            System.out.print(acc.pop() + " ");
+        }
+        System.out.println();
+
+        return new ListNode();
     }
 
     private static class ListNode {
