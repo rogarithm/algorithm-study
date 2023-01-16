@@ -9,7 +9,9 @@ public class ReverseLinkedList {
         // 값을 거꾸로 했을 때, 객체의 주소값으로 판별해야 하나? 값이 같으면 같다고 해도 될까?
         ListNode n1 = new ListNode(1, new ListNode(2));
         ListNode n2 = new ListNode(2, new ListNode(1));
-        System.out.println(tester.reverseList(n1) == n2);
+        ListNode rvsdn1 = tester.reverseList(n1);
+        System.out.println(rvsdn1.val == n2.val);
+        System.out.println(rvsdn1.next.val == n2.next.val);
     }
 
     public ListNode reverseList(ListNode head) {
