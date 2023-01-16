@@ -17,6 +17,7 @@ public class ReverseLinkedList {
 
         ListNode n3 = new ListNode(1, new ListNode(2, new ListNode(3)));
         ListNode rvsdn3 = tester.reverseList(n3);
+        System.out.println(tester.add(n1, 3).next.next.val);
     }
 
     public ListNode reverseList(ListNode head) {
@@ -33,12 +34,20 @@ public class ReverseLinkedList {
         }
 
         ListNode result = new ListNode();
-        while (!acc.isEmpty()) {
-            System.out.print(acc.pop() + " ");
-        }
-        System.out.println();
+        // 스택에 모인 요소를 차례대로 result에 넣으려면 어떻게 해야 할까?
 
-        return new ListNode();
+        return result;
+    }
+
+    private ListNode add(ListNode list, int elem) {
+        if (list == null) {
+            return null;
+        }
+        if (list.next == null) {
+            return new ListNode(list.val, new ListNode(elem));
+        } else {
+            return new ListNode(list.val, add(list.next, elem));
+        }
     }
 
     private static class ListNode {
