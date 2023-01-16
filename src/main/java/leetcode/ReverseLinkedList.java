@@ -14,7 +14,7 @@ public class ReverseLinkedList {
     private static class ListNode {
 
         int val;
-        leetcode.ListNode next;
+        ListNode next;
 
         ListNode() {
         }
@@ -23,7 +23,7 @@ public class ReverseLinkedList {
             this.val = val;
         }
 
-        ListNode(int val, leetcode.ListNode next) {
+        ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
         }
