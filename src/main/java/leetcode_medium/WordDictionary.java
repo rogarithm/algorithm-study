@@ -32,6 +32,8 @@ public class WordDictionary {
             return false;
         else if (dictionary.get(word) == true)
             return true;
+        // 만약 word에 . 문자가 포함되어 있다면, . 문자에 가능한 모든 문자를 대입해 검색한 결과 중 true가 반환되는 경우가 있는지를 확인해보면 될 것 같다.
+        // . 문자가 여러 번 나올 경우, 계산이 복잡해지지 않게 하려면 어떻게 해야할까? (문제에서 . 문자는 최대 세 번 나온다고 한다)
         return false;
     }
 }
