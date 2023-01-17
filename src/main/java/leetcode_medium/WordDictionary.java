@@ -10,6 +10,7 @@ public class WordDictionary {
         tester.addWord("bad");
         System.out.println(tester.search("bad") == true);
         System.out.println(tester.search("pad") == false);
+        System.out.println(tester.search(".ad") == true);
     }
 
     private Map<String, Boolean> dictionary;
@@ -21,12 +22,12 @@ public class WordDictionary {
 
     // Adds word to the data structure, it can be matched later.
     public void addWord(String word) {
-        // . 문자를 입력했을 때 검색을 효율적으로 하려면 어떤 자료구조를 쓰는 게 좋을까?
         dictionary.put(word, true);
     }
 
     // 입력 문자열과 완전히 동일하거나 입력의 '.' 문자 이외 모든 문자가 동일한 단어가 사전에 있으면 true를 반환
     public boolean search(String word) {
+        // . 문자를 입력했을 때 검색을 효율적으로 하려면 search에서 . 문자를 어떻게 처리할지를 고민해보는 게 좋을 것 같다
         if (dictionary.get(word) == null)
             return false;
         else if (dictionary.get(word) == true)
