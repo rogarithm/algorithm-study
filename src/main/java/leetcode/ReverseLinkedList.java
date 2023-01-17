@@ -12,20 +12,19 @@ public class ReverseLinkedList {
         ListNode n1 = new ListNode(1, new ListNode(2));
         ListNode n2 = new ListNode(2, new ListNode(1));
         ListNode rvsdn1 = tester.reverseList(n1);
-        System.out.println(rvsdn1.val == n2.val);
-        System.out.println(rvsdn1.next.val == n2.next.val);
+        System.out.println(rvsdn1.toString());
+        System.out.println(rvsdn1.val + " " + n2.val);
+        System.out.println(rvsdn1.next.val + " " + n2.next.val);
 
         ListNode n3 = new ListNode(1, new ListNode(2, new ListNode(3)));
         ListNode rvsdn3 = tester.reverseList(n3);
+        System.out.println(rvsdn3.toString());
 
         ListNode n4 = new ListNode(1, new ListNode(-2, new ListNode(-5, new ListNode(0, new ListNode(-4)))));
         ListNode rvsdn4 = tester.reverseList(n4);
         System.out.println(rvsdn4.toString());
 
         System.out.println(tester.add(n1, 3).next.next.val);
-
-        System.out.println(rvsdn1.toString());
-        System.out.println(rvsdn3.toString());
     }
 
     public ListNode reverseList(ListNode head) {
