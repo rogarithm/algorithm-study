@@ -88,8 +88,7 @@ public class ReverseLinkedList {
             if (list == null)
                 return "EMPTY";
 
-            if (list.val != 0)
-                result = Integer.toString(this.val) + " ";
+            result = Integer.toString(this.val) + " ";
 
             while (list.next != null) {
                 result += list.next.val + " ";
