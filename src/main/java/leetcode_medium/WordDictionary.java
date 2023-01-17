@@ -9,6 +9,7 @@ public class WordDictionary {
         WordDictionary tester = new WordDictionary();
         tester.addWord("bad");
         System.out.println(tester.search("bad") == true);
+        System.out.println(tester.search("pad") == false);
     }
 
     private Map<String, Boolean> dictionary;
@@ -26,7 +27,9 @@ public class WordDictionary {
 
     // 입력 문자열과 완전히 동일하거나 입력의 '.' 문자 이외 모든 문자가 동일한 단어가 사전에 있으면 true를 반환
     public boolean search(String word) {
-        if (dictionary.get(word) == true)
+        if (dictionary.get(word) == null)
+            return false;
+        else if (dictionary.get(word) == true)
             return true;
         return false;
     }
