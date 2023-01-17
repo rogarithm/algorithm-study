@@ -40,7 +40,7 @@ public class ReverseLinkedList {
             head = head.next;
         }
 
-        ListNode result = new ListNode();
+        ListNode result = new ListNode(acc.pop());
         // 스택에 모인 요소를 차례대로 result에 넣으려면 어떻게 해야 할까?
         while (!acc.isEmpty()) {
             result = add(result, acc.pop());
@@ -52,10 +52,6 @@ public class ReverseLinkedList {
     private ListNode add(ListNode list, int elem) {
         if (list == null) {
             return null;
-        }
-        // [1,-2,-5,0,-4] 케이스를 통과시키려면 아래 조건을 다르게 짜야할 것 같다
-        if (list.val == 0) {
-            return new ListNode(elem);
         }
         if (list.next == null) {
             return new ListNode(list.val, new ListNode(elem));
