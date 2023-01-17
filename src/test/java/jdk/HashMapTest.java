@@ -2,6 +2,8 @@ package jdk;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -36,5 +38,18 @@ public class HashMapTest {
         }
 
         Assertions.assertEquals(2, cache.get(1));
+    }
+
+    @Test
+    public void testMerge() {
+        int[] nums = {3, 3};
+        Map<Integer, Integer> candidates = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int current = nums[i];
+            candidates.merge(current, 1, Integer::sum);
+        }
+
+        Assertions.assertEquals(2, candidates.get(3));
     }
 }
