@@ -3,7 +3,9 @@ package leetcode_medium;
 public class WordDictionary {
 
     public static void main(String[] args) {
-
+        WordDictionary tester = new WordDictionary();
+        tester.addWord("bad");
+        System.out.println(tester.search("bad") == true);
     }
 
     // initialize the object
