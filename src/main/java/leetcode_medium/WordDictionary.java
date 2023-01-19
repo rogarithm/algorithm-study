@@ -27,9 +27,9 @@ public class WordDictionary {
         String word = "a.cd";
         int dotPosition = word.indexOf(".");
         for (String character : new String[]{"a", "b", "c"}) {
-            System.out.println("LEFT: " + word.substring(0, dotPosition));
-            System.out.println(character);
-            System.out.println("RIGHT: " + word.substring(dotPosition + 1, word.length()));
+            System.out.println(word.substring(0, dotPosition)
+                            + character
+                            + word.substring(dotPosition + 1, word.length()));
         }
     }
 
