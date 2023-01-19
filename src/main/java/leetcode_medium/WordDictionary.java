@@ -11,6 +11,11 @@ public class WordDictionary {
         System.out.println(tester.search("bad") == true);
         System.out.println(tester.search("pad") == false);
         System.out.println(tester.search(".ad") == true);
+
+
+        for (String character : new String[]{"a", "b", "c"}) {
+            System.out.println(character);
+        }
     }
 
     private Map<String, Boolean> dictionary;
