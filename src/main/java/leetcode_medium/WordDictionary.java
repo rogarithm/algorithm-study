@@ -30,9 +30,7 @@ public class WordDictionary {
     public boolean search(String word) {
         // . 문자를 입력했을 때 검색을 효율적으로 하려면 search에서 . 문자를 어떻게 처리할지를 고민해보는 게 좋을 것 같다
         if (word.contains(".") == false) {
-            if (dictionary.get(word) == null)
-                return false;
-            else if (dictionary.get(word) == true)
+            if (dictionary.get(word) != null && dictionary.get(word) == true)
                 return true;
         }
         // 만약 word에 . 문자가 포함되어 있다면, . 문자에 가능한 모든 문자를 대입해 검색한 결과 중 true가 반환되는 경우가 있는지를 확인해보면 될 것 같다.
