@@ -37,7 +37,8 @@ public class WordDictionary {
         // . 문자가 여러 번 나올 경우, 계산이 복잡해지지 않게 하려면 어떻게 해야할까? (문제에서 . 문자는 최대 세 번 나온다고 한다)
         else if (word.contains(".")) {
             int dotPosition = word.indexOf(".");
-            for (String character : new String[]{"a", "b", "c"}) {
+            char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+            for (char character : alpha) {
                 String candidate =
                         word.substring(0, dotPosition) + character + word.substring(dotPosition + 1,
                                 word.length());
