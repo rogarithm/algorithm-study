@@ -12,6 +12,9 @@ public class WordDictionary {
         System.out.println(tester.search("pad") == false);
         System.out.println(tester.search(".ad") == true);
 
+        tester.addWord("baz");
+        System.out.println(tester.search("ba.") == true);
+
     }
 
     private Map<String, Boolean> dictionary;
