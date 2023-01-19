@@ -26,6 +26,7 @@ public class WordDictionary {
     }
 
     // Adds word to the data structure, it can be matched later.
+    // 여기서 word에 . 문자가 있는지 체크하고 . 문자의 위치 정보를 같이 넣는 건 어떨까?
     public void addWord(String word) {
         dictionary.put(word, true);
     }
