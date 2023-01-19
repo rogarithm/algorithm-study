@@ -19,6 +19,11 @@ public class WordDictionary {
         System.out.println("bad".contains("."));
         System.out.println(".ad".contains("."));
         System.out.println("a.d".contains("."));
+
+        System.out.println("bad".indexOf(".") == -1);
+        System.out.println(".ad".indexOf(".") == 0);
+        System.out.println("a.d".indexOf(".") == 1);
+
     }
 
     private Map<String, Boolean> dictionary;
