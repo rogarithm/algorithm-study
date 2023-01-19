@@ -12,10 +12,13 @@ public class WordDictionary {
         System.out.println(tester.search("pad") == false);
         System.out.println(tester.search(".ad") == true);
 
-
         for (String character : new String[]{"a", "b", "c"}) {
             System.out.println(character);
         }
+
+        System.out.println("bad".contains("."));
+        System.out.println(".ad".contains("."));
+        System.out.println("a.d".contains("."));
     }
 
     private Map<String, Boolean> dictionary;
