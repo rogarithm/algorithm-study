@@ -18,6 +18,7 @@ public class WordDictionary {
         System.out.println(tester.search("ba.") == true);
 
         // . 문자가 하나인 경우와 둘인 경우를 분기로 나눠야할까?
+        // . 문자마다 넣을 문자를 aa, ab, ac와 같이 순서대로 어떻게 넣을 수 있을까?
         tester.addWord("abcd");
         System.out.println(tester.search("a..d") == true);
 
@@ -51,8 +52,26 @@ public class WordDictionary {
             for (char character : alpha) {
                 String candidate =
                         word.substring(0, dots.get(0)) + character + word.substring(dots.get(0) + 1);
+                System.out.println(candidate);
                 if (dictionary.get(candidate) != null && dictionary.get(candidate) == true) {
                     return true;
+                }
+            }
+        }
+        else if (!dots.isEmpty() && dots.size() == 2) {
+            char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray(); // https://stackoverflow.com/a/17575926
+            String candidate;
+            for (char character1 : alpha) {
+                candidate =
+                        word.substring(0, dots.get(0)) + character1 + word.substring(dots.get(0) + 1);
+                System.out.println("FIRST LOOP: " + candidate);
+                for (char character2 : alpha) {
+                    candidate =
+                            candidate.substring(0, dots.get(1)) + character2 + candidate.substring(dots.get(1) + 1);
+                    System.out.println("SECOND LOOP: " + candidate);
+                    if (dictionary.get(candidate) != null && dictionary.get(candidate) == true) {
+                        return true;
+                    }
                 }
             }
         }
