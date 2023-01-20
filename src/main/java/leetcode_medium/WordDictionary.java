@@ -15,6 +15,9 @@ public class WordDictionary {
         tester.addWord("baz");
         System.out.println(tester.search("ba.") == true);
 
+        tester.addWord("abcd");
+        System.out.println(tester.search("a..d") == true);
+
         // 여러 . 문자가 있는 경우, contains 연산으로 처리 가능한가?
     }
 
