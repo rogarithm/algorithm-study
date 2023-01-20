@@ -45,8 +45,7 @@ public class WordDictionary {
             char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray(); // https://stackoverflow.com/a/17575926
             for (char character : alpha) {
                 String candidate =
-                        word.substring(0, dotPosition) + character + word.substring(dotPosition + 1,
-                                word.length());
+                        word.substring(0, dotPosition) + character + word.substring(dotPosition + 1);
                 if (dictionary.get(candidate) != null && dictionary.get(candidate) == true) {
                     return true;
                 }
