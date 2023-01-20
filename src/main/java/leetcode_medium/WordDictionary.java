@@ -17,10 +17,11 @@ public class WordDictionary {
         tester.addWord("baz");
         System.out.println(tester.search("ba.") == true);
 
+        // . 문자가 하나인 경우와 둘인 경우를 분기로 나눠야할까?
         tester.addWord("abcd");
         System.out.println(tester.search("a..d") == true);
 
-        // 여러 . 문자가 있는 경우, contains 연산으로 처리 가능한가?
+        // 두 . 문자가 떨어져있는 경우 concat은 어떻게 해야할까
     }
 
     private Map<String, Boolean> dictionary;
