@@ -23,6 +23,7 @@ public class WordDictionary {
         System.out.println(tester.search("a..d") == true);
         tester.addWord("efgh");
         System.out.println(tester.search("e.g.") == true);
+        System.out.println(tester.search("...d") == true);
 
         // 두 . 문자가 떨어져있는 경우 concat은 어떻게 해야할까
     }
