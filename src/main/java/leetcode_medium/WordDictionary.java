@@ -54,23 +54,20 @@ public class WordDictionary {
             for (char character : alpha) {
                 String candidate =
                         word.substring(0, dots.get(0)) + character + word.substring(dots.get(0) + 1);
-                System.out.println(candidate);
                 if (dictionary.get(candidate) != null && dictionary.get(candidate) == true) {
                     return true;
                 }
             }
         }
         else if (!dots.isEmpty() && dots.size() == 2) {
-            char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray(); // https://stackoverflow.com/a/17575926
+            char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray();
             String candidate;
             for (char character1 : alpha) {
                 candidate =
                         word.substring(0, dots.get(0)) + character1 + word.substring(dots.get(0) + 1);
-                System.out.println("FIRST LOOP: " + candidate);
                 for (char character2 : alpha) {
                     candidate =
                             candidate.substring(0, dots.get(1)) + character2 + candidate.substring(dots.get(1) + 1);
-                    System.out.println("SECOND LOOP: " + candidate);
                     if (dictionary.get(candidate) != null && dictionary.get(candidate) == true) {
                         return true;
                     }
