@@ -68,6 +68,28 @@ public class WordDictionary {
                 }
             }
         }
+        else if (!dots.isEmpty() && dots.size() == 3) {
+            String candidate;
+            for (char character1 : alpha) {
+                candidate =
+                        word.substring(0, dots.get(0)) + character1 + word.substring(
+                                dots.get(0) + 1);
+                for (char character2 : alpha) {
+                    candidate =
+                            candidate.substring(0, dots.get(1)) + character2 + candidate.substring(
+                                    dots.get(1) + 1);
+                    for (char character3 : alpha) {
+                        candidate =
+                                candidate.substring(0, dots.get(2)) + character3
+                                        + candidate.substring(dots.get(2) + 1);
+                        if (dictionary.get(candidate) != null
+                                && dictionary.get(candidate) == true) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
         else if (dictionary.get(word) != null && dictionary.get(word) == true) {
             return true;
         }
