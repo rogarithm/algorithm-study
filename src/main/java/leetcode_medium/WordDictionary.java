@@ -43,6 +43,8 @@ public class WordDictionary {
     // . 문자가 여러 번 나올 경우, 계산이 복잡해지지 않게 하려면 어떻게 해야할까? (문제에서 . 문자는 최대 세 번 나온다고 한다)
     public boolean search(String word) {
         List<Integer> dots = new ArrayList<>();
+        char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray(); // https://stackoverflow.com/a/17575926
+
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i) == '.') {
                 dots.add(i);
@@ -50,7 +52,6 @@ public class WordDictionary {
         }
 
         if (!dots.isEmpty() && dots.size() == 1) {
-            char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray(); // https://stackoverflow.com/a/17575926
             for (char character : alpha) {
                 String candidate =
                         word.substring(0, dots.get(0)) + character + word.substring(dots.get(0) + 1);
@@ -60,7 +61,6 @@ public class WordDictionary {
             }
         }
         else if (!dots.isEmpty() && dots.size() == 2) {
-            char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray();
             String candidate;
             for (char character1 : alpha) {
                 candidate =
