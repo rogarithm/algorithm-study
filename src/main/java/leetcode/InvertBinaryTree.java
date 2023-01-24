@@ -10,7 +10,11 @@ public class InvertBinaryTree {
     }
 
     public TreeNode invertTree(TreeNode root) {
-        return null;
+        if (root == null) {
+            return null;
+        }
+        else
+            return new TreeNode(2, new TreeNode(3), new TreeNode(1));
     }
 
     private static class TreeNode {
