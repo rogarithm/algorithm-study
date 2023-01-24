@@ -14,7 +14,7 @@ public class InvertBinaryTree {
             return null;
         }
         else
-            return new TreeNode(2, new TreeNode(3), new TreeNode(1));
+            return new TreeNode(root.val, root.right, root.left);
     }
 
     private static class TreeNode {
