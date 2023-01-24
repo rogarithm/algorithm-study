@@ -15,6 +15,8 @@ public class InvertBinaryTree {
                 new TreeNode(2, new TreeNode(1), new TreeNode(3))
         );
         System.out.println(tester.invertTree(t3).toString().equals(t3inverted.toString()));
+        System.out.println(t3.toString());
+        System.out.println(t3inverted.toString());
     }
 
     public TreeNode invertTree(TreeNode root) {
