@@ -3,7 +3,8 @@ package leetcode;
 public class InvertBinaryTree {
 
     public static void main(String[] args) {
-        
+        InvertBinaryTree tester = new InvertBinaryTree();
+        System.out.println(tester.invertTree(null) == null);
     }
 
     public TreeNode invertTree(TreeNode root) {
