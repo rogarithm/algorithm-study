@@ -5,6 +5,8 @@ public class InvertBinaryTree {
     public static void main(String[] args) {
         InvertBinaryTree tester = new InvertBinaryTree();
         System.out.println(tester.invertTree(null) == null);
+        System.out.println(tester.invertTree(new TreeNode(2, new TreeNode(1),new TreeNode(3))).toString()
+                .equals(new TreeNode(2, new TreeNode(3), new TreeNode(1)).toString()));
     }
 
     public TreeNode invertTree(TreeNode root) {
