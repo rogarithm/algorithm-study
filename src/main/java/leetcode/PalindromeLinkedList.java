@@ -38,27 +38,45 @@ public class PalindromeLinkedList {
 
         // 노드 갯수가 홀수이면 정 중앙 데이터를 제외하고 나머지 앞뒤가 서로 대칭이어야 한다
         if (length % 2 == 1) {
-            System.out.println("length % 2: " + length % 2);
-            System.out.println("length / 2: " + length / 2);
-            return false;
+            int halfLength = length / 2;
+            Deque<Integer> half = new ArrayDeque<>();
+
+            for (int i = 0; i < halfLength; i++) {
+                half.addFirst(head.val);
+                head = head.next;
+            }
+
+            head = head.next; // 중앙에 있는 데이터는 넘겨야 한다
+
+            for (int i = halfLength + 1; i < length; i++) {
+                if (half.removeFirst() != head.val)
+                    return false;
+                head = head.next;
+            }
+
+            return true;
         }
 
         // 노드 갯수가 짝수이면 전체 노드 중 앞의 반과 뒤의 반을 비교한다
-        int halfLength = length / 2;
-        Deque<Integer> half = new ArrayDeque<>();
+        if (length % 2 == 0) {
+            int halfLength = length / 2;
+            Deque<Integer> half = new ArrayDeque<>();
 
-        for (int i = 0; i < halfLength; i++) {
-            half.addFirst(head.val);
-            head = head.next;
+            for (int i = 0; i < halfLength; i++) {
+                half.addFirst(head.val);
+                head = head.next;
+            }
+
+            for (int i = halfLength; i < length; i++) {
+                if (half.removeFirst() != head.val)
+                    return false;
+                head = head.next;
+            }
+
+            return true;
         }
 
-        for (int i = halfLength; i < length; i++) {
-            if (half.removeFirst() != head.val)
-                return false;
-            head = head.next;
-        }
-
-        return true;
+        return false;
     }
 
     private static class ListNode {
