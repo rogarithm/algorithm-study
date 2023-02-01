@@ -8,7 +8,7 @@ public class PalindromeLinkedList {
     public static void main(String[] args) {
         PalindromeLinkedList tester = new PalindromeLinkedList();
         System.out.println(tester.isPalindrome(null) == false);
-        System.out.println(tester.isPalindrome(new ListNode(1)) == false);
+        System.out.println(tester.isPalindrome(new ListNode(1)) == true);
         ListNode t1 = new ListNode(1, new ListNode(1));
         System.out.println(tester.isPalindrome(t1) == true);
         ListNode t2 = new ListNode(1, new ListNode(2));
