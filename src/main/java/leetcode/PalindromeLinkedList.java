@@ -20,19 +20,19 @@ public class PalindromeLinkedList {
 
     // Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
     public boolean isPalindrome(ListNode head) {
-        // 노드 갯수가 홀수이면 palindrome일 수 없다
         if (head == null) {
             return false;
         }
 
         int length = 0;
-        ListNode nodeForLength = head;
-        while (nodeForLength != null) {
-            nodeForLength = nodeForLength.next;
+        ListNode firstNode = head;
+        while (head != null) {
+            head = head.next;
             length++;
         }
-        System.out.println(length);
+        head = firstNode; // 노드가 처음을 가리키도록 되돌린다
 
+        // 노드 갯수가 홀수이면 palindrome일 수 없다
         if (length % 2 == 1) {
             return false;
         }
@@ -42,12 +42,12 @@ public class PalindromeLinkedList {
         Deque<Integer> half = new ArrayDeque<>();
 
         for (int i = 0; i < halfLength; i++) {
-            half.push(head.val);
+            half.addFirst(head.val);
             head = head.next;
         }
 
         for (int i = halfLength; i < length; i++) {
-            if (half.pop() != head.val)
+            if (half.removeFirst() != head.val)
                 return false;
             head = head.next;
         }
