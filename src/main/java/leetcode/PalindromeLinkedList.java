@@ -15,7 +15,8 @@ public class PalindromeLinkedList {
         System.out.println(tester.isPalindrome(t2) == false);
         ListNode t3 = new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(1))));
         System.out.println(tester.isPalindrome(t3) == true);
-
+        ListNode t4 = new ListNode(1, new ListNode(2, new ListNode(1)));
+        System.out.println(tester.isPalindrome(t4) == true);
     }
 
     // Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
