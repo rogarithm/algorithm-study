@@ -12,7 +12,25 @@ public class PalindromeLinkedList {
 
     // Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
     public boolean isPalindrome(ListNode head) {
-        return false;
+        // 노드 갯수가 홀수이면 palindrome일 수 없다
+        // 노드 갯수가 짝수이면 전체 노드 중 앞의 반과 뒤의 반을 비교한다
+        if (head == null) {
+            return false;
+        }
+
+        int length = 0;
+        ListNode nodeForLength = head;
+        while (nodeForLength != null) {
+            nodeForLength = nodeForLength.next;
+            length++;
+        }
+        System.out.println(length);
+
+        if (length % 2 == 1) {
+            return false;
+        }
+
+        return true;
     }
 
     private static class ListNode {
