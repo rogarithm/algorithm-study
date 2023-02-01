@@ -17,6 +17,9 @@ public class PalindromeLinkedList {
         System.out.println(tester.isPalindrome(t3) == true);
         ListNode t4 = new ListNode(1, new ListNode(2, new ListNode(1)));
         System.out.println(tester.isPalindrome(t4) == true);
+        ListNode t5 = new ListNode(1,
+                new ListNode(2, new ListNode(3, new ListNode(2, new ListNode(1)))));
+        System.out.println(tester.isPalindrome(t5) == true);
     }
 
     // Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
@@ -33,8 +36,10 @@ public class PalindromeLinkedList {
         }
         head = firstNode; // 노드가 처음을 가리키도록 되돌린다
 
-        // 노드 갯수가 홀수이면 palindrome일 수 없다
+        // 노드 갯수가 홀수이면 정 중앙 데이터를 제외하고 나머지 앞뒤가 서로 대칭이어야 한다
         if (length % 2 == 1) {
+            System.out.println("length % 2: " + length % 2);
+            System.out.println("length / 2: " + length / 2);
             return false;
         }
 
