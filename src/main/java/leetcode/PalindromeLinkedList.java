@@ -7,10 +7,15 @@ public class PalindromeLinkedList {
 
     public static void main(String[] args) {
         PalindromeLinkedList tester = new PalindromeLinkedList();
+        System.out.println(tester.isPalindrome(null) == false);
+        System.out.println(tester.isPalindrome(new ListNode(1)) == false);
         ListNode t1 = new ListNode(1, new ListNode(1));
         System.out.println(tester.isPalindrome(t1) == true);
         ListNode t2 = new ListNode(1, new ListNode(2));
         System.out.println(tester.isPalindrome(t2) == false);
+        ListNode t3 = new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(1))));
+        System.out.println(tester.isPalindrome(t3) == true);
+
     }
 
     // Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
