@@ -7,6 +7,12 @@ import org.junit.jupiter.api.Test;
 public class StringTest {
 
     @Test
+    public void testIncrementStringWithIntegerContent() {
+        Integer sInInt = Integer.valueOf("1");
+        sInInt = sInInt + 1;
+        Assertions.assertThat(sInInt.toString()).isEqualTo("2");
+    }
+    @Test
     public void testSubstringSecondArgIsExclusive() {
         String word = "a.cd";
         int dotPosition = word.indexOf(".");
