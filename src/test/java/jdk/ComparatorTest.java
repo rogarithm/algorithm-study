@@ -5,10 +5,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class ComparatorTest {
+
+    @Test
+    @DisplayName("Arrays에 내장된 sort 메서드로도 정렬할 수 있다")
+    public void testSortArrayWithBuiltinMethod() {
+        int[] ints = {4, 3, 2, 1};
+        Arrays.sort(ints);
+        assertThat(ints[0]).isEqualTo(1);
+    }
+
 
     @Test
     public void testSortArrayWithComparator() {
