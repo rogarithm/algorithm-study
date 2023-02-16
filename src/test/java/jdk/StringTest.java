@@ -38,6 +38,19 @@ public class StringTest {
     }
 
     @Test
+    public void testConcatSubstringWithStringBuilder() {
+        StringBuilder sb = new StringBuilder();
+        String word = "a.cd";
+        int dotPosition = word.indexOf(".");
+
+        sb.append(word.substring(0, dotPosition));
+        sb.append("b");
+        sb.append(word.substring(dotPosition + 1));
+
+        Assertions.assertThat(sb.toString()).isEqualTo("abcd");
+    }
+
+    @Test
     public void testIndexOfFail() {
         String word = "abcd";
         Assertions.assertThat(word.indexOf(".")).isEqualTo(-1);
