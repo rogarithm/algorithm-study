@@ -7,11 +7,6 @@ import org.junit.jupiter.api.Test;
 
 public class CharacterTest {
 
-    public static void main(String[] args) {
-        hackerrank.CeasarCipher tester = new hackerrank.CeasarCipher();
-        System.out.println(tester.caesarCipher("middle-Outz", 1));
-    }
-
     @Test
     @DisplayName("String을 char 배열로 변환할 수 있다")
     public void testConvertStringToCharArray() {
