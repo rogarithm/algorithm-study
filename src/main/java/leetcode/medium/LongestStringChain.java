@@ -1,5 +1,7 @@
 package leetcode.medium;
 
+import java.util.Arrays;
+
 // 1048. LongestStringChain
 // https://leetcode.com/problems/longest-string-chain/
 public class LongestStringChain {
@@ -20,12 +22,40 @@ public class LongestStringChain {
         if (words.length == 0) {
             return 0;
         }
-
-        if (words[1].substring(0,1).equals(words[0])
-                || words[1].substring(1, words.length).equals(words[0]))
-            return 2;
-        else
+        if (words.length == 1) {
             return 1;
+        }
+
+        String wordToCompare = words[0];
+        String currentWord = words[1];
+        for (int i = 0; i < currentWord.length(); i++) {
+            if (removeOneCharAt(currentWord, i).equals(wordToCompare)) {
+                return 1 + longestStrChain(leftWords(words));
+            }
+        }
+
+        return 1;
+    }
+
+    private String[] leftWords(String[] words) {
+
+        return Arrays.stream(words)
+                .skip(1)
+                .toArray(String[]::new);
+    }
+
+    private String removeOneCharAt(String word, int idx) {
+        char[] chars = word.toCharArray();
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < chars.length; i++) {
+            if (i == idx) {
+                continue;
+            }
+            result.append(chars[i]);
+        }
+
+        return result.toString();
     }
 
 }
