@@ -2,7 +2,8 @@ package leetcode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import leetcode.SymmetricTree.TreeNode;
+import leetcode.easy.SymmetricTree;
+import leetcode.easy.SymmetricTree.TreeNode;
 import org.junit.jupiter.api.Test;
 
 class SymmetricTreeTest {
