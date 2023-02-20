@@ -1,39 +1,14 @@
-package leetcode_medium;
+package leetcode.medium;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class WordDictionaryFast {
-    /*
-    어떻게 해야 더 빨리 찾을 수 있을까?
-    단어를 단어장에 저장할 때 다음에 그 단어를 찾기 용이하도록 단어장의 자료 구조를 정하는 게 좋을 것 같다.
-    떠올린 아이디어는 추가할 단어를 이루는 각 문자와 그 문자의 빈도수를 :와 같은 문자로 구분해 저장하는 것이다.
-    ex.
-     add -> key: add:a1d2, val: ?
-     dad -> key: dad:a1d2, val: ?
-    아니면 단어장의 키에는 문자 빈도수만 저장하고, 값에는 문자를 저장할 수도 있을 것 같다.
-    ex.
-     add -> key: a1d2, val: add
-     dad -> key: a1d2, val: dad
-    그러면 단어를 찾을 때, 먼저 찾으려는 단어를 구성하는 문자의 빈도를 계산하고, 이 빈도 목록으로 단어장에서 찾을 수 있을 것 같다.
-    search(add) ... a1d2 ... get(a1d2) ... true
-
-    문제는 . 문자가 들어간 경우이다. . 문자는 어떤 문자든 될 수 있기 때문에, 기존에 계산한 빈도 목록을 . 문자에 들어갈 수 있는
-    문자 빈도를 더한 값으로 바꿔서 단어장에서 다시 찾아야 한다.
-    search(a.d) ... a1d1?1 ... get(a2d1) ... false    (? = a)
-                           ... get(a1b1d1) ... false  (? = b)
-                           ... get(a1c1d1) ... false  (? = c)
-                           ... get(a1d2) ... true     (? = d)
-
-    이렇게 되면 가능한 빈도 목록을 반복해서 계산해야 하니 기존 구현 방법과 속도가 비슷하지 않을까?
-
-    이렇게 구현하면 같은 문자 빈도수를 갖는 단어가 한 키에 들어 있게 될 것이다.
-     */
+public class WordDictionary {
 
     public static void main(String[] args) {
-        WordDictionaryFast tester = new WordDictionaryFast();
+        WordDictionary tester = new WordDictionary();
         tester.addWord("bad");
         System.out.println(tester.search("bad") == true);
         System.out.println(tester.search("pad") == false);
@@ -53,10 +28,9 @@ public class WordDictionaryFast {
         // 두 . 문자가 떨어져있는 경우 concat은 어떻게 해야할까
     }
 
-    // 문자와 빈도수를 저장하는 것은 어떨까?
     private Map<String, Boolean> dictionary;
 
-    public WordDictionaryFast() {
+    public WordDictionary() {
         dictionary = new HashMap<>();
     }
 

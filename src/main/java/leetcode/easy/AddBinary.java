@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.easy;
 
 class AddBinary {
 	public static void main(String[] args) {

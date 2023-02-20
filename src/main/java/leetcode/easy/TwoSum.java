@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.easy;
 
 // 20220821
 class TwoSum {
