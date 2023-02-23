@@ -12,6 +12,8 @@ public class LongestStringChain {
         System.out.println(tester.longestStrChain(new String[]{"a"}) == 1);
         System.out.println(tester.longestStrChain(new String[]{"a", "ab"}) == 2);
         System.out.println(tester.longestStrChain(new String[]{"a", "ab", "abc"}) == 3);
+        System.out.println(tester.longestStrChain(new String[]{"a", "ab", "acb"}) == 3);
+        System.out.println(tester.longestStrChain(new String[]{"cab", "a", "ab"}) == 3);
     }
 
     //주어진 배열을 정렬한 뒤에 시작하는 것이 좋을 것 같다. String[] 타입을 어떻게 정렬하지?
