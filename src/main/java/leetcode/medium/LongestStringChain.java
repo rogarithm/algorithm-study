@@ -1,6 +1,7 @@
 package leetcode.medium;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 // 1048. LongestStringChain
 // https://leetcode.com/problems/longest-string-chain/
@@ -25,6 +26,13 @@ public class LongestStringChain {
         if (words.length == 1) {
             return 1;
         }
+
+        Arrays.sort(words, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
 
         String wordToCompare = words[0];
         String currentWord = words[1];
