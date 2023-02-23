@@ -1,10 +1,28 @@
 package jdk;
 
 
+import java.util.Arrays;
+import java.util.Comparator;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class StringTest {
+
+    @Test
+    @DisplayName("문자열 배열을 각 문자열 내 문자 갯수를 기준으로 정렬")
+    public void sortInStringLength() {
+        String[] strings = {"abc", "c", "ab"};
+        Arrays.sort(strings, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
+        for (String string : strings) {
+            System.out.println(string);
+        }
+    }
 
     @Test
     public void testIncrementStringWithIntegerContent() {
