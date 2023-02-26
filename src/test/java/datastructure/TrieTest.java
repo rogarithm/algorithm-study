@@ -31,6 +31,14 @@ public class TrieTest {
         Assertions.assertThat(trie.search("ab")).isTrue();
     }
 
+    @Test
+    @DisplayName("추가한 문자열 끝을 표시하기 위해 '.' 문자를 추가한다")
+    public void addPeriodToSignEndOfString() {
+        Trie trie = new Trie();
+        trie.addWord("a");
+        Assertions.assertThat(trie.words.next.currentChar).isEqualTo('.');
+    }
+
     private static class Trie {
 
         Node words;
