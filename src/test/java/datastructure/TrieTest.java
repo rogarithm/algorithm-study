@@ -53,6 +53,16 @@ public class TrieTest {
         }
 
         public boolean search(String s) {
+            char[] chars = s.toCharArray();
+            for (char c : chars) {
+                if (words.currentChar != c) {
+                    return false;
+                }
+                words = words.next;
+            }
+            if (words.currentChar != '.') {
+                return false;
+            }
             return true;
         }
     }
