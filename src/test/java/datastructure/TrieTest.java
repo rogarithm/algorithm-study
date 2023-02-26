@@ -10,7 +10,7 @@ public class TrieTest {
     @DisplayName("문자 하나를 trie에 추가할 수 있다")
     public void addOneCharToTrie() {
         Trie trie = new Trie();
-        TreeNode result = trie.addWord("a");
+        Node result = trie.addWord("a");
         Assertions.assertThat(result.currentChar).isEqualTo('a');
         Assertions.assertThat(result.next.currentChar).isEqualTo('.');
     }
@@ -33,18 +33,18 @@ public class TrieTest {
 
     private static class Trie {
 
-        TreeNode words;
+        Node words;
 
         public Trie() {
-            words = new TreeNode();
+            words = new Node();
         }
 
-        public TreeNode addWord(String s) {
+        public Node addWord(String s) {
             char[] chars = s.toCharArray();
-            TreeNode start = words;
+            Node start = words;
             for (char c : chars) {
                 words.currentChar = c;
-                words.next = new TreeNode();
+                words.next = new Node();
                 words = words.next;
             }
             words.currentChar = '.';
@@ -67,19 +67,19 @@ public class TrieTest {
         }
     }
 
-    private static class TreeNode {
+    private static class Node {
 
         char currentChar;
-        TreeNode next;
+        Node next;
 
-        TreeNode() {
+        Node() {
         }
 
-        TreeNode(char val) {
+        Node(char val) {
             this.currentChar = val;
         }
 
-        TreeNode(char val, TreeNode next) {
+        Node(char val, Node next) {
             this.currentChar = val;
             this.next = next;
         }
