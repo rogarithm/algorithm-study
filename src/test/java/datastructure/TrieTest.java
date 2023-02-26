@@ -15,6 +15,10 @@ public class TrieTest {
         Assertions.assertThat(result.next.currentChar).isEqualTo('.');
     }
 
+    @Test
+    @DisplayName("trie에 추가한 문자 하나를 검색할 수 있다")
+    public void searchOneCharFromTrie() {
+        Trie trie = new Trie();
         trie.addWord("a");
         Assertions.assertThat(trie.search("a")).isTrue();
     }
