@@ -27,6 +27,23 @@ public class TrieTest {
     }
 
     @Test
+    @DisplayName("단어 여러개를 trie에 추가할 수 있다")
+    public void addMultipleWordsToTrie() {
+        Trie trie = new Trie();
+        Node ace = trie.addWord("ace");
+        Node bad = trie.addWord("bad");
+        Assertions.assertThat(ace.currentChar).isEqualTo('a');
+        Assertions.assertThat(ace.next.currentChar).isEqualTo('c');
+        Assertions.assertThat(ace.next.next.currentChar).isEqualTo('e');
+        Assertions.assertThat(ace.next.next.next.currentChar).isEqualTo('.');
+
+        Assertions.assertThat(bad.currentChar).isEqualTo('b');
+        Assertions.assertThat(bad.next.currentChar).isEqualTo('a');
+        Assertions.assertThat(bad.next.next.currentChar).isEqualTo('d');
+        Assertions.assertThat(bad.next.next.next.currentChar).isEqualTo('.');
+    }
+
+    @Test
     @DisplayName("trie에 추가한 문자 하나를 검색할 수 있다")
     public void searchOneCharFromTrie() {
         Trie trie = new Trie();
