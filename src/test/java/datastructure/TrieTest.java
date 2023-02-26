@@ -24,11 +24,10 @@ public class TrieTest {
 
     private static class Trie {
 
-        char currentChar;
         TreeNode words;
-        boolean isWord;
 
         public Trie() {
+            words = new TreeNode();
         }
 
         public void addWord(String s) {
