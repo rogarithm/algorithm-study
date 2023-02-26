@@ -16,6 +16,17 @@ public class TrieTest {
     }
 
     @Test
+    @DisplayName("문자 여러개로 이뤄진 단어를 trie에 추가할 수 있다")
+    public void addMultipleCharToTrie() {
+        Trie trie = new Trie();
+        Node result = trie.addWord("bad");
+        Assertions.assertThat(result.currentChar).isEqualTo('b');
+        Assertions.assertThat(result.next.currentChar).isEqualTo('a');
+        Assertions.assertThat(result.next.next.currentChar).isEqualTo('d');
+        Assertions.assertThat(result.next.next.next.currentChar).isEqualTo('.');
+    }
+
+    @Test
     @DisplayName("trie에 추가한 문자 하나를 검색할 수 있다")
     public void searchOneCharFromTrie() {
         Trie trie = new Trie();
