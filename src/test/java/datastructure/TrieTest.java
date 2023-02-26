@@ -66,7 +66,7 @@ public class TrieTest {
     public void addPeriodToSignEndOfString() {
         Trie trie = new Trie();
         trie.addWord("a");
-        Assertions.assertThat(trie.words.next.currentChar).isEqualTo('.');
+        Assertions.assertThat(trie.words.get(0).next.currentChar).isEqualTo('.');
     }
 
     private static class Trie {
