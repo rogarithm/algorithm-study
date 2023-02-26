@@ -10,6 +10,11 @@ public class TrieTest {
     @DisplayName("문자 하나를 trie에 추가할 수 있다")
     public void addOneCharToTrie() {
         Trie trie = new Trie();
+        TreeNode result = trie.addWord("a");
+        Assertions.assertThat(result.currentChar).isEqualTo('a');
+        Assertions.assertThat(result.next.currentChar).isEqualTo('.');
+    }
+
         trie.addWord("a");
         Assertions.assertThat(trie.search("a")).isTrue();
     }
@@ -30,11 +35,17 @@ public class TrieTest {
             words = new TreeNode();
         }
 
-        public void addWord(String s) {
+        public TreeNode addWord(String s) {
             char[] chars = s.toCharArray();
+            TreeNode start = words;
             for (char c : chars) {
-                this.currentChar = c;
+                words.currentChar = c;
+                words.next = new TreeNode();
+                words = words.next;
             }
+            words.currentChar = '.';
+            words = start;
+            return words;
         }
 
         public boolean search(String s) {
