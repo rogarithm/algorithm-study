@@ -44,21 +44,19 @@ public class TrieTest {
 
     private static class TreeNode {
 
-        int val;
-        TreeNode left;
-        TreeNode right;
+        char currentChar;
+        TreeNode next;
 
         TreeNode() {
         }
 
-        TreeNode(int val) {
-            this.val = val;
+        TreeNode(char val) {
+            this.currentChar = val;
         }
 
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
+        TreeNode(char val, TreeNode next) {
+            this.currentChar = val;
+            this.next = next;
         }
     }
 }
