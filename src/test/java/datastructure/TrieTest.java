@@ -35,11 +35,11 @@ public class TrieTest {
     }
 
     @Test
-    @DisplayName("문자 여러개를 trie에 추가할 수 있다")
-    public void addMultipleCharsToTrie() {
+    @DisplayName("trie에 추가한 문자 여러개로 이뤄진 단어를 검색할 수 있다")
+    public void searchMultipleCharsToTrie() {
         Trie trie = new Trie();
-        trie.addWord("ab");
-        Assertions.assertThat(trie.search("ab")).isTrue();
+        trie.addWord("bad");
+        Assertions.assertThat(trie.search("bad")).isTrue();
     }
 
     @Test
