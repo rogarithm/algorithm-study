@@ -72,7 +72,7 @@ public class TrieTest {
     }
 
     @Test
-    @DisplayName("추가한 문자열 끝을 표시하기 위해 '.' 문자를 추가한다")
+    @DisplayName("추가한 문자열 끝을 표시하기 위해 '.' 문자를 쓴다")
     public void addPeriodToSignEndOfString() {
         Trie trie = new Trie();
         trie.addWord("a");
