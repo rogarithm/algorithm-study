@@ -1,5 +1,7 @@
 package datastructure;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -69,34 +71,48 @@ public class TrieTest {
 
     private static class Trie {
 
-        Node words;
+        List<Node> words;
 
         public Trie() {
-            words = new Node();
+            words = new ArrayList<Node>();
         }
 
         public Node addWord(String s) {
             char[] chars = s.toCharArray();
-            Node start = words;
+            Node word = new Node();
+            Node start = word;
             for (char c : chars) {
-                words.currentChar = c;
-                words.next = new Node();
-                words = words.next;
+                word.currentChar = c;
+                word.next = new Node();
+                word = word.next;
             }
-            words.currentChar = '.';
-            words = start;
-            return words;
+            word.currentChar = '.';
+            word = start;
+            words.add(word);
+            return word;
         }
 
         public boolean search(String s) {
             char[] chars = s.toCharArray();
+            Node word = null;
+            for (Node node : words) {
+                if (node.currentChar == chars[0]) {
+                    word = node;
+                    break;
+                }
+            }
+
+            if (word == null) {
+                return false;
+            }
+
             for (char c : chars) {
-                if (words.currentChar != c) {
+                if (word.currentChar != c) {
                     return false;
                 }
-                words = words.next;
+                word = word.next;
             }
-            if (words.currentChar != '.') {
+            if (word.currentChar != '.') {
                 return false;
             }
             return true;
