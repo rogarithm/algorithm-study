@@ -62,6 +62,16 @@ public class TrieTest {
     }
 
     @Test
+    @DisplayName("trie에 추가한 단어 여러개를 검색할 수 있다")
+    public void searchMultipleWordsFromTrie() {
+        Trie trie = new Trie();
+        trie.addWord("ace");
+        trie.addWord("bad");
+        Assertions.assertThat(trie.search("ace")).isTrue();
+        Assertions.assertThat(trie.search("bad")).isTrue();
+    }
+
+    @Test
     @DisplayName("추가한 문자열 끝을 표시하기 위해 '.' 문자를 추가한다")
     public void addPeriodToSignEndOfString() {
         Trie trie = new Trie();
