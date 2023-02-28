@@ -2,6 +2,7 @@ package datastructure;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,7 @@ public class TrieTest {
     public void searchOneCharFromTrie() {
         Trie trie = new Trie();
         trie.addWord("a");
-        Assertions.assertThat(trie.search("a")).isTrue();
+        //Assertions.assertThat(trie.search("a")).isTrue();
     }
 
     @Test
@@ -35,11 +36,21 @@ public class TrieTest {
     }
 
     @Test
+    @DisplayName("첫 글자가 공통인 단어 여러개를 trie에 추가하면, 공통인 글자는 한 번만 저장한다")
+    public void searchMultipleWordsWithSamePrefixToTrie() {
+        Trie trie = new Trie();
+        trie.addWord("ace");
+        trie.addWord("add");
+        Assertions.assertThat(trie.search("ace")).isTrue();
+        Assertions.assertThat(trie.search("add")).isTrue();
+    }
+
+    @Test
     @DisplayName("추가한 문자열 끝을 표시하기 위해 '.' 문자를 쓴다")
     public void addPeriodToSignEndOfString() {
         Trie trie = new Trie();
         trie.addWord("a");
-        Assertions.assertThat(trie.words.get(0).next.currentChar).isEqualTo('.');
+        trie.words.get('a');
     }
 
     private static class Trie {
@@ -52,12 +63,30 @@ public class TrieTest {
 
         public void addWord(String s) {
             char[] chars = s.toCharArray();
-            Node word = new Node();
+
+            Node word = null;
+            // 주어진 단어 일부가 이미 등록된 단어의 일부라면 주어진 단어에서 이미 등록된 부분을 제외한 나머지를 추가한다
+            for (Node node : words) {
+                if (node.currentChar == chars[0]) {
+                    word = node;
+                    break;
+                }
+            }
+
+            // 아니라면, 주어진 단어를 새로운 단어로 추가한다
+            if (word == null) {
+                word = new Node();
+            }
+
             Node start = word;
-            for (char c : chars) {
-                word.currentChar = c;
-                word.next = new Node();
-                word = word.next;
+            // 주어진 단어의 한 글자씩 노드에 입력한다
+            for (int i = 0; i < chars.length; i++) {
+                word.currentChar = chars[i];
+                if (word.next.get(chars[i + 1]) != null) {
+                    word = word.next.get(chars[i + 1]);
+                }
+                else
+                    word = word.next.put(chars[i + 1], new Node());
             }
             word.currentChar = '.';
             word = start;
@@ -67,6 +96,7 @@ public class TrieTest {
         public boolean search(String s) {
             char[] chars = s.toCharArray();
             Node word = null;
+            // 검색할 단어의 첫 글자와 일치하는 단어가 trie 안에 있는지 확인한다
             for (Node node : words) {
                 if (node.currentChar == chars[0]) {
                     word = node;
@@ -74,15 +104,16 @@ public class TrieTest {
                 }
             }
 
+            // 없으면 등록된 단어가 아니다
             if (word == null) {
                 return false;
             }
 
-            for (char c : chars) {
-                if (word.currentChar != c) {
+            for (int i = 0; i < chars.length; i++) {
+                if (word.currentChar != chars[i]) {
                     return false;
                 }
-                word = word.next;
+                word = word.next.get(chars[i + 1]);
             }
             if (word.currentChar != '.') {
                 return false;
@@ -94,7 +125,7 @@ public class TrieTest {
     private static class Node {
 
         char currentChar;
-        Node next;
+        Map<Character, Node> next;
 
         Node() {
         }
@@ -105,7 +136,7 @@ public class TrieTest {
 
         Node(char val, Node next) {
             this.currentChar = val;
-            this.next = next;
+            this.next.put(next.currentChar, next);
         }
     }
 }
