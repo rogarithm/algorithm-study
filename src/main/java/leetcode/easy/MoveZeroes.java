@@ -9,9 +9,16 @@ public class MoveZeroes {
     public static void main(String[] args) {
         MoveZeroes tester = new MoveZeroes();
         int[] t1 = {0, 1, 0, 3, 12};
-        tester.moveZeroes(new int[]{0,1,0,3,12});
+        tester.moveZeroes(t1);
         tester.printArray(t1);
-        //tester.printArray(tester.moveZeroes(new int[]{0, 0, 1}));
+        int[] t2 = {0, 1};
+        tester.moveZeroes(t2);
+        tester.printArray(t2);
+        int[] t3 = {0, 0, 1};
+        tester.moveZeroes(t3);
+        tester.printArray(t3);
+    }
+
     }
 
     //새로운 배열을 쓸 수 없으므로, 기존 배열을 어떻게 활용해서 0을 옮길지 생각해봤다.
