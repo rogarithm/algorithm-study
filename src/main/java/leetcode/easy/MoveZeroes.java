@@ -8,8 +8,10 @@ public class MoveZeroes {
 
     public static void main(String[] args) {
         MoveZeroes tester = new MoveZeroes();
-        tester.printArray(tester.moveZeroes(new int[]{0,1,0,3,12}));
-        tester.printArray(tester.moveZeroes(new int[]{0, 0, 1}));
+        int[] t1 = {0, 1, 0, 3, 12};
+        tester.moveZeroes(new int[]{0,1,0,3,12});
+        tester.printArray(t1);
+        //tester.printArray(tester.moveZeroes(new int[]{0, 0, 1}));
     }
 
     //새로운 배열을 쓸 수 없으므로, 기존 배열을 어떻게 활용해서 0을 옮길지 생각해봤다.
