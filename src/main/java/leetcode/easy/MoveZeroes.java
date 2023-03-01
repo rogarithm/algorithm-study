@@ -21,33 +21,33 @@ public class MoveZeroes {
     // arrayList로 변환하면 괜찮나?
     //배열 끝에 다다르면 0 카운터 값을 확인하고, 그 갯수만큼 배열 뒤에 0을 추가한다
     //마지막에는 처음 저장해놓았던 맨 처음 요소값을 0 카운터 값 대신 첫 요소에 넣는다
-    public int[] moveZeroes(int[] nums) {
-        List<Integer> result = new ArrayList<>(nums.length);
-        for (int num : nums) {
-            result.add(num);
-        }
-
-        int firstElement = result.get(0);
-        result.set(0, 0);
-        if (firstElement == 0) {
-            result.set(0, 1);
-        }
-
-        for (int i = 0; i < result.size(); i++) {
-            if (result.get(i) == 0) {
-                result.set(0, result.get(0) + 1);
-                result.remove(i);
-            }
-        }
-
-        for (int i = 0; i < result.get(0); i++) {
-            result.add(0);
-        }
-        result.remove(0);
-
-        nums = result.stream().mapToInt(i -> i).toArray();
-        return nums;
-    }
+//    public int[] moveZeroes(int[] nums) {
+//        List<Integer> result = new ArrayList<>(nums.length);
+//        for (int num : nums) {
+//            result.add(num);
+//        }
+//
+//        int firstElement = result.get(0);
+//        result.set(0, 0);
+//        if (firstElement == 0) {
+//            result.set(0, 1);
+//        }
+//
+//        for (int i = 0; i < result.size(); i++) {
+//            if (result.get(i) == 0) {
+//                result.set(0, result.get(0) + 1);
+//                result.remove(i);
+//            }
+//        }
+//
+//        for (int i = 0; i < result.get(0); i++) {
+//            result.add(0);
+//        }
+//        result.remove(0);
+//
+//        nums = result.stream().mapToInt(i -> i).toArray();
+//        return nums;
+//    }
 
     public void printArray(int[] arr) {
         for (int num : arr) {
