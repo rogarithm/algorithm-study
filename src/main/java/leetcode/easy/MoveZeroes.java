@@ -19,6 +19,23 @@ public class MoveZeroes {
         tester.printArray(t3);
     }
 
+    //0이 맨 앞에 두 개 나오면, 맨 앞의 0이 맨 뒤로 보내진 다음 '맨 앞'에 0이 남아있다.
+    //인덱스가 1이 되기 때문에, 새로 맨 앞에 위치하게 된 0을 뒤로 보낼 수가 없게 된다.
+    public void moveZeroes(int[] nums) {
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (i >= 1 && nums[i - 1] == 0) {
+                i -= 1;
+            }
+            if (nums[i] == 0) {
+                for (int j = i; j < nums.length - 1; j++) {
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+
     }
 
     //새로운 배열을 쓸 수 없으므로, 기존 배열을 어떻게 활용해서 0을 옮길지 생각해봤다.
