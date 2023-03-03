@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class ArrayTest {
 
     @Test
-    public void construct2DArray() {
+    public void make2DArray() {
         int[][] twoDim = {{1,2,3},{4,5,6}};
 
         int[][] twoDim2 = new int[2][3];
@@ -20,13 +20,13 @@ public class ArrayTest {
     }
 
     @Test
-    public void getOneDimensionLengthFromTwoDimensionArray() {
+    public void getRowCount() {
         int[][] twoDim = {{1,2,3},{4,5,6}};
         Assertions.assertThat(twoDim.length).isEqualTo(2);
     }
 
     @Test
-    public void getTwoDimensionLengthFromTwoDimensionArray() {
+    public void getColumnCount() {
         int[][] twoDim = {{1,2,3},{4,5,6}};
         Assertions.assertThat(twoDim[0].length).isEqualTo(3);
         Assertions.assertThat(twoDim[1].length).isEqualTo(3);
