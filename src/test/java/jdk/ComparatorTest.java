@@ -18,13 +18,28 @@ public class ComparatorTest {
         assertThat(ints[0]).isEqualTo(1);
     }
 
+    @Test
+    public void testSortStringArray() {
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("a", "ab", "abc"));
+        Comparator<String> comparator = new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2){
+                return o2.length() - o1.length(); // 더 긴 문자열이 앞으로 온다
+            }
+        };
+        arrayList.sort(comparator);
+        for (String s : arrayList) {
+            System.out.println(s);
+        }
+    }
+
 
     @Test
     public void testSortArrayWithComparator() {
         ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(2, 3, 1, 5, 4));
         Comparator<Integer> comparator = new Comparator<Integer>() {
             @Override
-            public int compare(Integer i1, Integer i2) {
+            public int compare(Integer i1, Integer i2) { // 더 작은 숫자가 앞으로 온다
                 if (i1 == i2) {
                     return 0;
                 } else if (i1 < i2) {
