@@ -1,9 +1,9 @@
 package jdk;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -41,9 +41,9 @@ public class HashMapTest {
         for (int num = 0; num < nums.length; num++) {
             if (cache.get(nums[num]) != null) {
                 cache.put(nums[num], 2);
-            }
-            else
+            } else {
                 cache.put(nums[num], 1);
+            }
         }
 
         Assertions.assertEquals(2, cache.get(1));
