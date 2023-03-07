@@ -10,6 +10,15 @@ import org.junit.jupiter.api.Test;
 public class HashMapTest {
 
     @Test
+    public void getOrDefault() {
+        Map<String, Integer> cache = new HashMap<>();
+        cache.put("a", 1);
+
+        assertThat(cache.getOrDefault("a", 0)).isEqualTo(1);
+        assertThat(cache.getOrDefault("unknown", 0)).isEqualTo(0);
+    }
+
+    @Test
     public void testGet() {
         int[] nums = {1};
         Map<Integer, Integer> cache = new HashMap<>();
