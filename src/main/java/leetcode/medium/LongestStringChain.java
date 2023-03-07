@@ -34,5 +34,24 @@ public class LongestStringChain {
     // 동일한 길이의 요소가 앞에 여러 개 있을 경우와 한 개만 있을 경우를 다르게 처리하면 어떨까
     public int longestStrChain(String[] words) {
 
+        Map<String, Integer> cache = new HashMap<>();
+        Arrays.sort(words, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length(); //오름차순으로 정렬
+            }
+        });
+
+        int result = 0;
+        for (String word : words) {
+            int best = 0;
+            for (int i = 0; i < word.length(); i++) {
+                String previous = word.substring(0, i) + word.substring(i + 1);
+                best = Math.max(best, cache.getOrDefault(previous, 0) + 1);
+            }
+            cache.put(word, best);
+            result = Math.max(result, best);
+        }
+        return result;
     }
 }
