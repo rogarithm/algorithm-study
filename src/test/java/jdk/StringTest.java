@@ -30,6 +30,21 @@ public class StringTest {
         sInInt = sInInt + 1;
         Assertions.assertThat(sInInt.toString()).isEqualTo("2");
     }
+
+    @Test
+    public void substringForZeroLength() {
+        String s = "a".substring(0, 0);
+        Assertions.assertThat(s).isEqualTo("");
+    }
+
+    @Test
+    public void substringBeginIndexMoreThanInputLength() {
+        String s = "a".substring(1);
+        Assertions.assertThat(s).isEqualTo("");
+        String s2 = "ab".substring(2);
+        Assertions.assertThat(s2).isEqualTo("");
+    }
+
     @Test
     public void testSubstringSecondArgIsExclusive() {
         String word = "a.cd";
