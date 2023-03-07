@@ -2,6 +2,8 @@ package leetcode.medium;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 // 1048. LongestStringChain
 // https://leetcode.com/problems/longest-string-chain/
@@ -31,50 +33,6 @@ public class LongestStringChain {
     //동일한 길이의 요소가 여러 가지이고 그 중 일부만 다음 길이 요소의 predecessor가 될 수 있는 경우는 어떻게 처리해야할까?
     // 동일한 길이의 요소가 앞에 여러 개 있을 경우와 한 개만 있을 경우를 다르게 처리하면 어떨까
     public int longestStrChain(String[] words) {
-        if (words.length == 0) {
-            return 0;
-        }
-        if (words.length == 1) {
-            return 1;
-        }
 
-        Arrays.sort(words, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.length() - o2.length();
-            }
-        });
-
-        String wordToCompare = words[0];
-        String currentWord = words[1];
-        for (int i = 0; i < currentWord.length(); i++) {
-            if (removeOneCharAt(currentWord, i).equals(wordToCompare)) {
-                return 1 + longestStrChain(leftWords(words));
-            }
-        }
-
-        return 1;
     }
-
-    private String[] leftWords(String[] words) {
-
-        return Arrays.stream(words)
-                .skip(1)
-                .toArray(String[]::new);
-    }
-
-    private String removeOneCharAt(String word, int idx) {
-        char[] chars = word.toCharArray();
-        StringBuilder result = new StringBuilder();
-
-        for (int i = 0; i < chars.length; i++) {
-            if (i == idx) {
-                continue;
-            }
-            result.append(chars[i]);
-        }
-
-        return result.toString();
-    }
-
 }
