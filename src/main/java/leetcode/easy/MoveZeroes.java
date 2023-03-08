@@ -20,6 +20,9 @@ public class MoveZeroes {
         int[] t4 = {0, 1, 0, 3};
         tester.moveZeroes(t4);
         tester.printArray(t4);
+        int[] t5 = {1};
+        tester.moveZeroes(t5);
+        tester.printArray(t5);
     }
 
     //0이 맨 앞에 두 개 나오면, 맨 앞의 0이 맨 뒤로 보내진 다음 '맨 앞'에 0이 남아있다.
