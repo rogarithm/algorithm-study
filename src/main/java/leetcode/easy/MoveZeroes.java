@@ -27,22 +27,14 @@ public class MoveZeroes {
     public void moveZeroes(int[] nums) {
 
         int zeroCount = 0;
-        for (int i = nums.length - 1; i >= 0; i--) {
-            if (nums[i] == 0) zeroCount++;
-        }
-
-        for (int i = nums.length - 1; i > 0; i--) {
-            if (i == nums.length - 2 && nums[i + 1] != 0) i++;
-            if (zeroCount - 1 == i) break;
-            if (nums[i] == 0) continue;
-            for (int j = i; j > 0; j--) {
-                int temp = nums[j];
-                nums[j] = nums[j - 1];
-                nums[j - 1] = temp;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0)
+                zeroCount++;
+            else {
+                nums[i - zeroCount] = nums[i];
+                nums[i] = 0;
             }
         }
-
-
     }
 
     public void printArray(int[] arr) {
