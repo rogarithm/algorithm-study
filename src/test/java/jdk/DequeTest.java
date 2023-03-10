@@ -21,13 +21,13 @@ public class DequeTest {
     }
 
     @Test
-    public void testPopEquivalent() {
+    public void popEquivalent() {
         assertThat(deque.pop()).isEqualTo(test1[0]);
         assertThat(deque.removeFirst()).isEqualTo(test1[1]);
     }
 
     @Test
-    public void testPushEquivalent() {
+    public void pushEquivalent() {
         deque.push(0);
         assertThat(deque.removeFirst()).isEqualTo(0);
         deque.addFirst(0);
@@ -35,7 +35,7 @@ public class DequeTest {
     }
 
     @Test
-    public void testPeekEquivalent() {
+    public void peekEquivalent() {
         assertThat(deque.peek()).isEqualTo(deque.getFirst());
     }
 }

@@ -19,7 +19,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void testGet() {
+    public void get() {
         int[] nums = {1};
         Map<Integer, Integer> cache = new HashMap<>();
 
@@ -34,7 +34,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void testPutAfterPut() {
+    public void putAfterPut() {
         int[] nums = {1, 1};
         Map<Integer, Integer> cache = new HashMap<>();
 
@@ -50,7 +50,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void testMerge() {
+    public void merge() {
         int[] nums = {3, 3};
         Map<Integer, Integer> candidates = new HashMap<>();
 
