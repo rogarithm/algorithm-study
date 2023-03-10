@@ -20,7 +20,7 @@ public class StringTest {
     }
 
     @Test
-    public void testResionMatchMethodWithCase() {
+    public void regionMatchMethodWithCase() {
         String s = "This is a text";
         String compare = "is";
         Assertions.assertThat(s.regionMatches(2, compare, 0, 2)).isTrue();
@@ -28,14 +28,14 @@ public class StringTest {
     }
 
     @Test
-    public void testResionMatchMethodIgnoreCase() {
+    public void regionMatchMethodIgnoreCase() {
         String s = "This is a text";
         String compare = "this";
         Assertions.assertThat(s.regionMatches(true, 0, compare, 0, 4)).isTrue();
     }
 
     @Test
-    public void testSplit() {
+    public void split() {
         String s = "java technology";
         String delimiter = " ";
         String[] splitted = s.split(delimiter);
@@ -45,7 +45,7 @@ public class StringTest {
     }
 
     @Test
-    public void testTrim() {
+    public void trim() {
         String[] trimThese = {"a ", " a", " a "};
 
         String[] result = new String[3];

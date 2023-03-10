@@ -7,26 +7,26 @@ import org.junit.jupiter.api.Test;
 public class StringTest {
 
     @Test
-    public void testIncrementStringWithIntegerContent() {
+    public void incrementStringWithIntegerContent() {
         Integer sInInt = Integer.valueOf("1");
         sInInt = sInInt + 1;
         Assertions.assertThat(sInInt.toString()).isEqualTo("2");
     }
     @Test
-    public void testSubstringSecondArgIsExclusive() {
+    public void substringSecondArgIsExclusive() {
         String word = "a.cd";
         int dotPosition = word.indexOf(".");
         Assertions.assertThat(word.substring(0, dotPosition)).isEqualTo("a");
     }
 
     @Test
-    public void testSubstringSecondArgNoNeedIfItIsEndOfString() {
+    public void substringSecondArgNoNeedIfItIsEndOfString() {
         String word = "abcd";
         Assertions.assertThat(word.substring(1, word.length())).isEqualTo(word.substring(1));
     }
 
     @Test
-    public void testConcatSubstring() {
+    public void concatSubstring() {
         String word = "a.cd";
         int dotPosition = word.indexOf(".");
         String character = "b";
@@ -38,7 +38,7 @@ public class StringTest {
     }
 
     @Test
-    public void testConcatSubstringWithStringBuilder() {
+    public void concatSubstringWithStringBuilder() {
         StringBuilder sb = new StringBuilder();
         String word = "a.cd";
         int dotPosition = word.indexOf(".");
@@ -51,25 +51,25 @@ public class StringTest {
     }
 
     @Test
-    public void testIndexOfFail() {
+    public void indexOfFail() {
         String word = "abcd";
         Assertions.assertThat(word.indexOf(".")).isEqualTo(-1);
     }
 
     @Test
-    public void testIndexOfSuccess() {
+    public void indexOfSuccess() {
         String word = "a.cd";
         Assertions.assertThat(word.indexOf(".")).isEqualTo(1);
     }
 
     @Test
-    public void testContainsSuccess() {
+    public void containsSuccess() {
         Assertions.assertThat(".ad".contains(".")).isEqualTo(true);
         Assertions.assertThat("a.d".contains(".")).isEqualTo(true);
     }
 
     @Test
-    public void testContainsFail() {
+    public void containsFail() {
         Assertions.assertThat("bad".contains(".")).isEqualTo(false);
     }
 

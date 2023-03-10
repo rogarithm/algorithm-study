@@ -12,7 +12,7 @@ public class ComparatorTest {
 
     @Test
     @DisplayName("Arrays에 내장된 sort 메서드로도 정렬할 수 있다")
-    public void testSortArrayWithBuiltinMethod() {
+    public void sortArrayWithBuiltinMethod() {
         int[] ints = {4, 3, 2, 1};
         Arrays.sort(ints);
         assertThat(ints[0]).isEqualTo(1);
@@ -20,7 +20,7 @@ public class ComparatorTest {
 
 
     @Test
-    public void testSortArrayWithComparator() {
+    public void sortArrayWithComparator() {
         ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(2, 3, 1, 5, 4));
         Comparator<Integer> comparator = new Comparator<Integer>() {
             @Override

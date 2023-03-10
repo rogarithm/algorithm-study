@@ -26,7 +26,7 @@ public class IteratorTest {
     }
 
     @Test
-    public void testIterateZeroElemenet() {
+    public void iterateZeroElemenet() {
 
         Iterator<String> iterator = strings.iterator();
         while (iterator.hasNext()) {
@@ -38,7 +38,7 @@ public class IteratorTest {
     }
 
     @Test
-    public void testIterateOneElemenet() {
+    public void iterateOneElemenet() {
         strings.add("a");
 
         Iterator<String> iterator = strings.iterator();
@@ -51,7 +51,7 @@ public class IteratorTest {
     }
 
     @Test
-    public void testIterateTwoElemenet() {
+    public void iterateTwoElemenet() {
         strings.add("a");
         strings.add("b");
 

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class ArrayListTest {
 
     @Test
-    public void testArrayListChangesSizeWhenAddElements() {
+    public void arrayListChangesSizeWhenAddElements() {
         ArrayList<Integer> arrayList = new ArrayList<>();
         Assertions.assertEquals(0, arrayList.size());
         arrayList.add(1);
@@ -18,7 +18,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void testSet() {
+    public void set() {
         //ArrayList<Integer> test = new ArrayList<>(Arrays.asList(1, 1, 1, 2, 3));
         //ArrayList<Integer> test = new ArrayList<>(Arrays.asList(0, 1, 1, 2, 4));
         ArrayList<Integer> test = new ArrayList<>(Arrays.asList(1, 1, 2, 3, 1));
