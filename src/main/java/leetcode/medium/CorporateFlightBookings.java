@@ -3,16 +3,18 @@ package leetcode.medium;
 public class CorporateFlightBookings {
 
     public int[] corpFlightBookings(int[][] bookings, int n) {
-        int[] result = new int[n];
-
+        int[] cache = new int[n];
         for (int[] booking : bookings) {
-            int first = booking[0];
-            int last = booking[1];
-            int seats = booking[2];
+            cache[booking[0] - 1] += booking[2];
+            if (booking[1] < n)
+                cache[booking[1]] -= booking[2];
+        }
 
-            for (int i = first - 1; i < last; i++) {
-                result[i] += seats;
-            }
+        int[] result = new int[n];
+        int currentSum = 0;
+        for (int i = 0; i < result.length; i++) {
+            currentSum = currentSum + cache[i];
+            result[i] = currentSum;
         }
 
         return result;
