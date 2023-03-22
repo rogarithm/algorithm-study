@@ -27,8 +27,8 @@ public class CourseScheduleII {
 
         Map<Integer, Set<Integer>> map = new HashMap<>();
         for (int[] pre : prerequisites) {
-            map.putIfAbsent(pre[0], new HashSet<>()); //선행수업을 키로 하고, 이 수업을 들어야 수강할 수 있는 수업 목록을 값으로 한다
-            map.get(pre[0]).add(pre[1]);
+            map.putIfAbsent(pre[1], new HashSet<>()); //선행수업을 키로 하고, 이 수업을 들어야 수강할 수 있는 수업 목록을 값으로 한다
+            map.get(pre[1]).add(pre[0]);
             //System.out.println("pre list: ");
             //prerequisiteLists.get(pre[0]).forEach(e -> System.out.println(e + ", "));
         }
