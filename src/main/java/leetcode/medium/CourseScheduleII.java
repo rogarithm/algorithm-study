@@ -20,39 +20,39 @@ public class CourseScheduleII {
     }
 
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        int[] result = new int[numCourses];
-        int idx = 0;
         int[] indegrees = new int[numCourses];
         for (int[] pre : prerequisites) {
-            indegrees[pre[0]] += 1;
-            //System.out.println("ind: " + indegrees[pre[0]]);
+            indegrees[pre[0]] += 1; //각 pre는 수업과 그 수업의 선행수업으로 구성. 선행수업이 하나 있을 때마다 indegree도 1 증가
         }
 
-        Map<Integer, Set<Integer>> prerequisiteLists = new HashMap<>();
+        Map<Integer, Set<Integer>> map = new HashMap<>();
         for (int[] pre : prerequisites) {
-            prerequisiteLists.putIfAbsent(pre[0], new HashSet<>());
-            prerequisiteLists.get(pre[0]).add(pre[1]);
+            map.putIfAbsent(pre[0], new HashSet<>()); //선행수업을 키로 하고, 이 수업을 들어야 수강할 수 있는 수업 목록을 값으로 한다
+            map.get(pre[0]).add(pre[1]);
             //System.out.println("pre list: ");
             //prerequisiteLists.get(pre[0]).forEach(e -> System.out.println(e + ", "));
         }
 
-        Queue<Integer> preResult = new LinkedList<>();
+        Queue<Integer> zeroIndegreeCourses = new LinkedList<>();
         for (int i = 0; i < numCourses; i++) {
             if (indegrees[i] == 0) {
-                preResult.add(i);
+                zeroIndegreeCourses.add(i);
             }
         }
 
-        while (!preResult.isEmpty()) {
-            Integer currentCourse = preResult.poll();
-            result[idx++] = currentCourse;
-            System.out.println("currentCourse: " + currentCourse);
+        int[] result = new int[numCourses];
+        int idx = 0;
+        while (!zeroIndegreeCourses.isEmpty()) {
+            Integer currentZeroIndegreeCourse = zeroIndegreeCourses.poll();
+            result[idx++] = currentZeroIndegreeCourse;
+            //System.out.println("currentCourse: " + currentCourse);
 
-            if (prerequisiteLists.containsKey(currentCourse)) {
-                for (int pre : prerequisiteLists.get(currentCourse)) {
+            if (map.containsKey(currentZeroIndegreeCourse)) {
+                //이 수업을 선행수업으로 하는 수업들의 indegree를 1만큼 다시 빼야 한다
+                for (int pre : map.get(currentZeroIndegreeCourse)) {
                     indegrees[pre] -= 1;
                     if (indegrees[pre] == 0) {
-                        preResult.add(pre);
+                        zeroIndegreeCourses.add(pre);
                     }
                 }
             }
