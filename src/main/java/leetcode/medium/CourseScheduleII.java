@@ -14,9 +14,6 @@ public class CourseScheduleII {
 
         CourseScheduleII tester = new CourseScheduleII();
         int[] result = tester.findOrder(4, t);
-        //for (int i : result) {
-        //    System.out.println(i);
-        //}
     }
 
     public int[] findOrder(int numCourses, int[][] prerequisites) {
@@ -29,8 +26,6 @@ public class CourseScheduleII {
         for (int[] pre : prerequisites) {
             map.putIfAbsent(pre[1], new HashSet<>()); //선행수업을 키로 하고, 이 수업을 들어야 수강할 수 있는 수업 목록을 값으로 한다
             map.get(pre[1]).add(pre[0]);
-            //System.out.println("pre list: ");
-            //prerequisiteLists.get(pre[0]).forEach(e -> System.out.println(e + ", "));
         }
 
         Queue<Integer> zeroIndegreeCourses = new LinkedList<>();
@@ -45,7 +40,6 @@ public class CourseScheduleII {
         while (!zeroIndegreeCourses.isEmpty()) {
             Integer currentZeroIndegreeCourse = zeroIndegreeCourses.poll();
             result[idx++] = currentZeroIndegreeCourse;
-            //System.out.println("currentCourse: " + currentCourse);
 
             if (map.containsKey(currentZeroIndegreeCourse)) {
                 //이 수업을 선행수업으로 하는 수업들의 indegree를 1만큼 다시 빼야 한다
