@@ -12,7 +12,6 @@ public class BullsCows {
     }
 
     public String getHint(String secret, String guess) {
-        //올바른 자리에 있는 정답인 숫자를 bulls, 다른 자리에 있는 정답인 숫자를 cows
         char[] s = secret.toCharArray();
         char[] g = guess.toCharArray();
         Map<Character, Integer> secretCache = new HashMap<>();
@@ -33,16 +32,12 @@ public class BullsCows {
             }
         }
 
-        //맞히지 못한 문자 중 guess에 있는 문자가 있다면 cows를 증가시킨다
         for (Character c : secretCache.keySet()) {
             if (guessCache.get(c) != null) {
-                //두 캐시에 저장된 숫자가 같다면 그 숫자만큼 cows를 증가시킨다
                 if (secretCache.get(c) == guessCache.get(c))
                     cowsCount += guessCache.get(c);
-                //예상치에 저장된 숫자가 더 작다면 예상치에 저장된 숫자만큼 cows를 증가시킨다
                 if (secretCache.get(c) > guessCache.get(c))
                     cowsCount += guessCache.get(c);
-                //예상치에 저장된 숫자가 더 많다면, 답안쪽 숫자만큼만 cows를 증가시킨다
                 if (secretCache.get(c) < guessCache.get(c))
                     cowsCount += secretCache.get(c);
             }
