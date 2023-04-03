@@ -9,6 +9,7 @@ public class BullsCows {
         BullsCows tester = new BullsCows();
         System.out.println(tester.getHint("1807", "7810"));
         System.out.println(tester.getHint("1123", "0111"));
+        System.out.println(tester.getHint("112", "011"));
     }
 
     public String getHint(String secret, String guess) {
