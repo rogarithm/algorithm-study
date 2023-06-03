@@ -1,4 +1,4 @@
-package jdk;
+package learn.jdk;
 
 import java.util.IllegalFormatConversionException;
 import org.junit.jupiter.api.Assertions;
