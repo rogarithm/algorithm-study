@@ -27,15 +27,19 @@ public class p11655 {
         String line = br.readLine();
         for (int i = 0; i < line.length(); i++) {
             char c = line.charAt(i);
-            //2글자 미는 경우를 생각해보자
+            //13글자만큼 밀어도 smalls의 인덱스를 벗어나지 않을 경우
             if (c - 'a' >= 0 && c - 'a' <= 12) {
+                //그냥 밀면 된다
                 System.out.print(smalls[c - 'a' + 13]);
                 continue;
             }
+            //13만큼 밀었을 때 small의 끝을 넘어가서 indexOutOfRange 예외가 발생하는 경우
             if (c - 'a' >= 12 && c - 'a' <= 25) {
+                //벗어나는 만큼 첫 인덱스부터 밀어주면 된다
                 System.out.print(smalls[c - 'a' + 13 - 26]);
                 continue;
             }
+            //대문자도 소문자와 마찬가지
             if (c - 'A' >= 0 && c - 'A' <= 12) {
                 System.out.print(bigs[c - 'A' + 13]);
                 continue;
@@ -44,10 +48,13 @@ public class p11655 {
                 System.out.print(bigs[c - 'A' + 13 - 26]);
                 continue;
             }
+
+            //빈 칸일 경우 그대로 출력한다
             if (c == ' ') {
                 System.out.print(' ');
                 continue;
             }
+            //이외의 경우도 그대로 출력한다
             else System.out.print(c);
         }
     }
