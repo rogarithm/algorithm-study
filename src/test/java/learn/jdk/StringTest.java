@@ -59,6 +59,23 @@ public class StringTest {
     }
 
     @Test
+    public void eraseCharacterLeftCursor() {
+        String word = "abc";
+        int cursor = 3;
+        word = word.substring(0, cursor - 1) + word.substring(cursor);
+        Assertions.assertThat(word).isEqualTo("ab");
+    }
+
+    @Test
+    public void addCharacterLeftCursor() {
+        String word = "abc";
+        int cursor = 3;
+        String c = "z";
+        word = word.substring(0, cursor) + c + word.substring(cursor);
+        Assertions.assertThat(word).isEqualTo("abcz");
+    }
+
+    @Test
     public void concatSubstring() {
         String word = "a.cd";
         int dotPosition = word.indexOf(".");
