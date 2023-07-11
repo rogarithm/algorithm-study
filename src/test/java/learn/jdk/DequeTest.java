@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Iterator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -37,5 +38,19 @@ public class DequeTest {
     @Test
     public void peekEquivalent() {
         assertThat(deque.peek()).isEqualTo(deque.getFirst());
+    }
+
+    @Test
+    public void canRotateIndex() {
+        Iterator<Integer> iterator = deque.iterator();
+        for (int i=0; i<deque.size(); i++) {
+            if (iterator.hasNext()) {
+                System.out.println(iterator.next());
+                System.out.println("not yet...");
+            }
+        }
+        System.out.println("is this equal to first index?");
+        Iterator<Integer> iterator2 = deque.iterator();
+        System.out.println(iterator2.next());
     }
 }
