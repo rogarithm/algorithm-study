@@ -30,6 +30,7 @@ public class p11576 {
         }
 
         //size()로 pop() 횟수를 계산했을 때 제대로 나오지 않는 경우가 있었다. 왜 그럴까?
+        //pop()하면 size()가 바뀌기 때문이었다
         while (!stack.isEmpty()) {
             System.out.print(stack.pop());
             System.out.print(" ");
