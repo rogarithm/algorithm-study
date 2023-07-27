@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class p11656 {
-    
+
     public static void main(String[] args) throws IOException {
         String input = "zbac";
         BufferedReader br = new BufferedReader(new StringReader(input));

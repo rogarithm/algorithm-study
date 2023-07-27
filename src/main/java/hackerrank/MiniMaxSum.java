@@ -1,6 +1,8 @@
 package hackerrank;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 class MiniMaxSum {
 
@@ -17,8 +19,7 @@ class MiniMaxSum {
             Long candidate = addAllExcept(arr, i);
             if (candidate > max) {
                 max = candidate;
-            }
-            else if (candidate < min) {
+            } else if (candidate < min) {
                 min = candidate;
             }
         }
@@ -26,7 +27,7 @@ class MiniMaxSum {
     }
 
     public static Long addAllExcept(List<Integer> arr, int i) {
-        Long sum = 0l;
+        Long sum = 0L;
         for (int j = 0; j < arr.size(); j++) {
             if (i != j) {
                 sum += arr.get(j);

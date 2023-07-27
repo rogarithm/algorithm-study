@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.StringReader;
 
 public class p1212 {
+
     /*
     문제 8진수가 주어졌을 때, 2진수로 변환하는 프로그램을 작성하시오.
     입력 첫째 줄에 8진수가 주어진다. 주어지는 수의 길이는 333,334을 넘지 않는다.
@@ -30,16 +31,22 @@ public class p1212 {
         }
         result.reverse();
 
-        for (int j =1; j<num.length(); j++) {
+        for (int j = 1; j < num.length(); j++) {
             StringBuilder elem = new StringBuilder();
             int current = num.charAt(j) - '0';
             while (current != 0) {
                 elem.append(current % 2);
                 current /= 2;
             }
-            if (elem.length() == 0) elem.append("000");
-            if (elem.length() == 1) elem.append("00");
-            if (elem.length() == 2) elem.append("0");
+            if (elem.length() == 0) {
+                elem.append("000");
+            }
+            if (elem.length() == 1) {
+                elem.append("00");
+            }
+            if (elem.length() == 2) {
+                elem.append("0");
+            }
             result.append(elem.reverse());
         }
 

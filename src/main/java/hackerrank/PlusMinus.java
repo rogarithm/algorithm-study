@@ -19,12 +19,11 @@ public class PlusMinus {
         for (int i = 0; i < arr.size(); i++) {
             if (arr.get(i) > 0) {
                 positives++;
-            }
-            else if (arr.get(i) < 0) {
+            } else if (arr.get(i) < 0) {
                 negatives++;
-            }
-            else
+            } else {
                 zeros++;
+            }
         }
         float a = (float) positives / arr.size();
         float b = (float) negatives / arr.size();

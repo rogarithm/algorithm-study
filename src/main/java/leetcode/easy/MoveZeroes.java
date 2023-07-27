@@ -1,9 +1,5 @@
 package leetcode.easy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class MoveZeroes {
 
     public static void main(String[] args) {
@@ -31,9 +27,9 @@ public class MoveZeroes {
 
         int zeroCount = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 0)
+            if (nums[i] == 0) {
                 zeroCount++;
-            else if (zeroCount > 0) {
+            } else if (zeroCount > 0) {
                 nums[i - zeroCount] = nums[i];
                 nums[i] = 0;
             }

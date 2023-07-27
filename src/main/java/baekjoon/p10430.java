@@ -19,9 +19,9 @@ public class p10430 {
         //첫째 줄에 (A+B)%C, 둘째 줄에 ((A%C) + (B%C))%C, 셋째 줄에 (A×B)%C, 넷째 줄에 ((A%C) × (B%C))%C를 출력한다.
         StringBuilder result = new StringBuilder();
         result.append((A + B) % C).append('\n')
-              .append(((A % C) + (B % C)) % C).append('\n')
-              .append((A * B) % C).append('\n')
-              .append(((A % C) * (B % C)) % C);
+            .append(((A % C) + (B % C)) % C).append('\n')
+            .append((A * B) % C).append('\n')
+            .append(((A % C) * (B % C)) % C);
         bw.write(result.toString());
         bw.flush();
         bw.close();

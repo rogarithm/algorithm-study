@@ -15,13 +15,13 @@ public class p1158 {
         int k = Integer.parseInt(input[1]);
 
         Deque<Integer> deque = new ArrayDeque<>();
-        for (int i=1; i<=n; i++) {
+        for (int i = 1; i <= n; i++) {
             deque.offer(i);
         }
 
         StringBuilder result = new StringBuilder().append('<');
         while (deque.size() > 1) { // size() == 1인 조건이 없으면 아래 ", " 추가하는 문장에 조건문 필요없다
-            for (int i=0; i<k-1; i++) {
+            for (int i = 0; i < k - 1; i++) {
                 deque.offer(deque.poll()); // poll()로 현재 인덱스의 요소를 빼서 offer()로 deque의 맨 뒤에 집어넣는다
             }
             result.append(deque.poll()).append(", "); // k번째 요소는 삭제해야 하니까 offer()하지 않는다

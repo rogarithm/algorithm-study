@@ -12,10 +12,10 @@ public class SingleNumber {
     public static void main(String[] args) {
         SingleNumber tester = new SingleNumber();
         System.out.println(tester.singleNumber(new int[]{1}));
-        System.out.println(tester.singleNumber(new int[]{1,1,2}));
-        System.out.println(tester.singleNumber(new int[]{1,2,3,2,3}));
-        System.out.println(tester.singleNumber(new int[]{4,1,2,1,2}));
-        System.out.println(tester.singleNumber(new int[]{1,0,1}));
+        System.out.println(tester.singleNumber(new int[]{1, 1, 2}));
+        System.out.println(tester.singleNumber(new int[]{1, 2, 3, 2, 3}));
+        System.out.println(tester.singleNumber(new int[]{4, 1, 2, 1, 2}));
+        System.out.println(tester.singleNumber(new int[]{1, 0, 1}));
     }
 
     public int singleNumber(int[] nums) {
@@ -25,7 +25,7 @@ public class SingleNumber {
 
         /* 어떤 요소가 두 번 나올 때, 연속으로 나온다는 보장이 없으므로 입력을 스캔하는 동안 요소와 요소가 나온 횟수를 hashMap으로 저장했다 */
         /* 계산하는 도중에는 출력값이 될 수 있는 요소가 여러 개 될 수 있으므로 이들을 모아두고 두 번 나온 값은 제거해 마지막으로 남은 요소를
-        * 출력으로 내보내기 위해 스택을 이용했다. 하지만 스택 가장 위에 있는 값이 아닌 상황이 생겼다. */
+         * 출력으로 내보내기 위해 스택을 이용했다. 하지만 스택 가장 위에 있는 값이 아닌 상황이 생겼다. */
 
         Set<Integer> cache = new HashSet<Integer>();
         for (int num = 0; num < nums.length; num++) {

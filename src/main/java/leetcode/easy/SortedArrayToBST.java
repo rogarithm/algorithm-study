@@ -14,7 +14,7 @@ public class SortedArrayToBST {
         int[] testCase1 = {1};
         TreeNode testResult1 = tester.sortedArrayToBST(testCase1);
         System.out.println(
-                testResult1.val == 1
+            testResult1.val == 1
         );
 
         // 값이 둘 있으면 둘 중 작은 값을 root로, 큰 값을 right로 하는 TreeNode를 만들거나,
@@ -22,7 +22,7 @@ public class SortedArrayToBST {
         int[] testCase2 = {1, 2};
         TreeNode testResult2 = tester.sortedArrayToBST(testCase2);
         System.out.println(
-                testResult2.val == 1 && testResult2.right.val == 2
+            testResult2.val == 1 && testResult2.right.val == 2
                 || testResult2.val == 2 && testResult2.left.val == 1
         );
 
@@ -31,7 +31,7 @@ public class SortedArrayToBST {
         int[] testCase3 = {1, 2, 3};
         TreeNode testResult3 = tester.sortedArrayToBST(testCase3);
         System.out.println(
-                testResult3.val == 2 && testResult3.left.val == 1
+            testResult3.val == 2 && testResult3.left.val == 1
                 && testResult3.right.val == 3
         );
 
@@ -41,7 +41,7 @@ public class SortedArrayToBST {
         TreeNode testResult4 = tester.sortedArrayToBST(testCase4);
         System.out.println(testResult4.toString());
         System.out.println(
-                testResult4.val == 3 && testResult4.left.val == 2
+            testResult4.val == 3 && testResult4.left.val == 2
                 && testResult4.left.left.val == 1 && testResult4.right.val == 5
                 && testResult4.right.left.val == 4
         );
@@ -50,7 +50,7 @@ public class SortedArrayToBST {
         TreeNode testResult5 = tester.sortedArrayToBST(testCase5);
         System.out.println(testResult5.toString());
 
-        int[] leetcodeCase1 = {-10,-3,0,5,9};
+        int[] leetcodeCase1 = {-10, -3, 0, 5, 9};
         TreeNode testResult6 = tester.sortedArrayToBST(leetcodeCase1);
         System.out.println(testResult6.toString());
     }
@@ -68,9 +68,9 @@ public class SortedArrayToBST {
         if (nums.length > 3) {
             int mid = nums.length / 2;
             return new TreeNode(
-                    nums[mid],
-                    sortedArrayToBST(Arrays.copyOfRange(nums, 0, mid)),
-                    sortedArrayToBST(Arrays.copyOfRange(nums, mid + 1, nums.length))
+                nums[mid],
+                sortedArrayToBST(Arrays.copyOfRange(nums, 0, mid)),
+                sortedArrayToBST(Arrays.copyOfRange(nums, mid + 1, nums.length))
             );
         }
         return null;
@@ -99,7 +99,7 @@ public class SortedArrayToBST {
         @Override
         public String toString() {
             String result = "";
-            result += "ROOT: " + Integer.toString(this.val) ;
+            result += "ROOT: " + Integer.toString(this.val);
             if (this.left != null) {
                 result += "\n" + " LEFT\n" + "  " + this.left.toString() + "\n";
             }
@@ -114,8 +114,8 @@ public class SortedArrayToBST {
             TreeNode testPrint2 = new TreeNode(2, new TreeNode(1), null);
             TreeNode testPrint3 = new TreeNode(2, new TreeNode(1), new TreeNode(3));
             TreeNode testPrint4 = new TreeNode(3,
-                    new TreeNode(2, new TreeNode(1), null),
-                    new TreeNode(5, new TreeNode(4), null));
+                new TreeNode(2, new TreeNode(1), null),
+                new TreeNode(5, new TreeNode(4), null));
             System.out.println(testPrint1.toString());
             System.out.println(testPrint2.toString());
             System.out.println(testPrint3.toString());

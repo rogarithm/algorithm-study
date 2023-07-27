@@ -20,7 +20,9 @@ public class p1373 {
         }
 
         for (int i = num.length() % 3; i < num.length(); i += 3) {
-            result.append(((num.charAt(i) - '0') * 4) + ((num.charAt(i + 1) - '0') * 2) + (num.charAt(i + 2) - '0'));
+            result.append(
+                ((num.charAt(i) - '0') * 4) + ((num.charAt(i + 1) - '0') * 2) + (num.charAt(i + 2)
+                    - '0'));
         }
 
         System.out.println(result);

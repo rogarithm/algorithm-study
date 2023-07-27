@@ -13,23 +13,25 @@ public class p1978 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int count =Integer.parseInt(br.readLine());
+        int count = Integer.parseInt(br.readLine());
         String[] nums = br.readLine().split(" ");
 
         int result = 0;
-        for (int i=0; i<count; i++) {
+        for (int i = 0; i < count; i++) {
             int num = Integer.parseInt(nums[i]);
             if (num == 1) {
                 continue;
             }
             boolean isPrime = true;
-            for (int j=2; j<=Math.sqrt(num); j++) {
+            for (int j = 2; j <= Math.sqrt(num); j++) {
                 if (num % j == 0) {
                     isPrime = false;
                     break;
                 }
             }
-            if (isPrime) result++;
+            if (isPrime) {
+                result++;
+            }
         }
 
         System.out.println(result);

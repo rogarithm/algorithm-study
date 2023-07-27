@@ -10,13 +10,13 @@ public class p11576 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] systems = br.readLine().split(" ");
-        int from =Integer.parseInt(systems[0]);
+        int from = Integer.parseInt(systems[0]);
         int to = Integer.parseInt(systems[1]);
-        int numCount =Integer.parseInt(br.readLine());
+        int numCount = Integer.parseInt(br.readLine());
         String[] nums = br.readLine().split(" ");
 
         int fromSum = 0;
-        for (int i=0; i<numCount; i++) {
+        for (int i = 0; i < numCount; i++) {
             fromSum += Integer.parseInt(nums[i]) * Math.pow(from, numCount - i - 1);
         }
 

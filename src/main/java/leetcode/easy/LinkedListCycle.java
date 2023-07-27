@@ -44,8 +44,7 @@ public class LinkedListCycle {
         while (nextElement != null) {
             if (cache.get(nextElement) == null) {
                 cache.put(nextElement, true);
-            }
-            else if (cache.get(nextElement) != null && cache.get(nextElement) == true) {
+            } else if (cache.get(nextElement) != null && cache.get(nextElement) == true) {
                 result = true;
                 break;
             }
@@ -57,8 +56,10 @@ public class LinkedListCycle {
 
     // Definition for singly-linked list.
     private static class ListNode {
+
         int val;
         ListNode next;
+
         ListNode(int x) {
             val = x;
             next = null;

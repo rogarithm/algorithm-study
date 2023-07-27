@@ -8,12 +8,18 @@ import java.util.List;
 public class LonelyInteger {
 
     public static void main(String[] args) {
-        System.out.println(LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1))) == 1);
-        System.out.println(LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1, 1, 2))) == 2);
-        System.out.println(LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1, 1, 2, 2, 3))) == 3);
-        System.out.println(LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 3, 2, 1))) == 4);
+        System.out.println(
+            LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1))) == 1);
+        System.out.println(
+            LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1, 1, 2))) == 2);
+        System.out.println(
+            LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1, 1, 2, 2, 3))) == 3);
+        System.out.println(
+            LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 3, 2, 1)))
+                == 4);
 
-        System.out.println(LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1, 2, 2))) == 1);
+        System.out.println(
+            LonelyInteger.lonelyinteger(new ArrayList<Integer>(Arrays.asList(1, 2, 2))) == 1);
     }
 
     public static int lonelyinteger(List<Integer> a) {

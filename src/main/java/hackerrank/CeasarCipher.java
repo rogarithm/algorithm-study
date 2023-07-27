@@ -19,20 +19,16 @@ public class CeasarCipher {
             if (c >= 'a' && c <= 'z' && c + k <= 'z') {
                 c += k;
                 result.append(c);
-            }
-            else if (c >= 'a' && c <= 'z' && c + k > 'z') {
+            } else if (c >= 'a' && c <= 'z' && c + k > 'z') {
                 int newC = (int) 'a' + c + k - (int) 'z' - 1;
                 result.append((char) newC);
-            }
-            else if (c >= 'A' && c <= 'Z' && c + k <= 'Z') {
+            } else if (c >= 'A' && c <= 'Z' && c + k <= 'Z') {
                 c += k;
                 result.append(c);
-            }
-            else if (c >= 'A' && c <= 'Z' && c + k > 'Z') {
+            } else if (c >= 'A' && c <= 'Z' && c + k > 'Z') {
                 int newC = (int) 'A' + c + k - (int) 'Z' - 1;
                 result.append((char) newC);
-            }
-            else {
+            } else {
                 result.append(c);
             }
         }

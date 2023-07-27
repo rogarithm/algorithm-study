@@ -14,8 +14,8 @@ public class TimeConversion {
         String hour = s.substring(0, 2);
         String minute = s.substring(3, 5);
         String second = s.substring(6, 8);
-        String incrementedHour = incrementString(hour.substring(0, 1), 1) +
-                incrementString(hour.substring(1), 2);
+        String incrementedHour = incrementString(hour.substring(0, 1), 1)
+            + incrementString(hour.substring(1), 2);
         if (s.substring(8).equals("PM") && hour.equals("12")) {
             return hour + ":" + minute + ":" + second;
         }

@@ -28,17 +28,19 @@ public class p1406 {
             iter.next();
         }
 
-        for (int i=0; i<count; i++) {
+        for (int i = 0; i < count; i++) {
             String command = br.readLine();
-            if (command.equals("L") && iter.hasPrevious())
+            if (command.equals("L") && iter.hasPrevious()) {
                 iter.previous();
-            if (command.equals("D") && iter.hasNext())
+            }
+            if (command.equals("D") && iter.hasNext()) {
                 iter.next();
+            }
             if (command.equals("B") && iter.hasPrevious()) {
                 iter.previous();
                 iter.remove();
             }
-            if (command.substring(0,1).equals("P")) {
+            if (command.substring(0, 1).equals("P")) {
                 iter.add(command.charAt(2));
             }
         }

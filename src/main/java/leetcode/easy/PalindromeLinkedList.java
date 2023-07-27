@@ -18,7 +18,7 @@ public class PalindromeLinkedList {
         ListNode t4 = new ListNode(1, new ListNode(2, new ListNode(1)));
         System.out.println(tester.isPalindrome(t4) == true);
         ListNode t5 = new ListNode(1,
-                new ListNode(2, new ListNode(3, new ListNode(2, new ListNode(1)))));
+            new ListNode(2, new ListNode(3, new ListNode(2, new ListNode(1)))));
         System.out.println(tester.isPalindrome(t5) == true);
     }
 
@@ -49,8 +49,9 @@ public class PalindromeLinkedList {
             head = head.next; // 중앙에 있는 데이터는 넘겨야 한다
 
             for (int i = halfLength + 1; i < length; i++) {
-                if (half.removeFirst() != head.val)
+                if (half.removeFirst() != head.val) {
                     return false;
+                }
                 head = head.next;
             }
 
@@ -68,8 +69,9 @@ public class PalindromeLinkedList {
             }
 
             for (int i = halfLength; i < length; i++) {
-                if (half.removeFirst() != head.val)
+                if (half.removeFirst() != head.val) {
                     return false;
+                }
                 head = head.next;
             }
 
@@ -80,11 +82,21 @@ public class PalindromeLinkedList {
     }
 
     private static class ListNode {
+
         int val;
         ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 
 }

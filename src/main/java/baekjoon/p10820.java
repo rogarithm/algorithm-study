@@ -18,7 +18,7 @@ public class p10820 {
             int space = 0;
             for (int i = 0; i < line.length(); i++) {
                 char c = line.charAt(i);
-                if (c - 'a' >= 0 && c - 'a'<= 25) {
+                if (c - 'a' >= 0 && c - 'a' <= 25) {
                     small++;
                     continue;
                 }
