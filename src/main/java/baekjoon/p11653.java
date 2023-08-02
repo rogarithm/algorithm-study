@@ -3,11 +3,8 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class p11653 {
 
@@ -29,29 +26,21 @@ public class p11653 {
 
     public static void main(String[] args) throws IOException {
 
-        BufferedReader br = new BufferedReader(new StringReader("9991"));
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        BufferedReader br = new BufferedReader(new StringReader("3"));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int num = Integer.parseInt(br.readLine());
 
-        List<Integer> divs = new ArrayList<>(1000);
         int bound = num / 2;
-        while (true) {
-            if (num == 1) break;
-            for (int div = 2; div <= bound; div++) {
-                if (num % div == 0) {
-                    divs.add(div);
-                    num = num / div;
-                    break;
-                }
+        StringBuilder result = new StringBuilder();
+        for (int div = 2; div <= bound; div++) { //어차피 매번 2부터 소인수를 찾으므로 오름차순이 유지된다. 그러므로 Collections.sort할 필요 없다
+            while (num % div == 0) { //현재의 div로 나눌 수 있을만큼 나눠서 for문에서 해당 div에 한 번만 접근하도록 한다
+                result.append(div).append('\n');
+                num = num / div;
             }
         }
 
-        Collections.sort(divs);
-        StringBuilder result = new StringBuilder();
-        for (Integer r : divs) {
-            result.append(r).append('\n');
-        }
+        if (num != 1) result.append(num); //입력이 3일 때, 3은 bound인 1.5보다 크지만 결과에 포함되어야 한다.
 
         bw.write(result.toString());
         bw.flush();
